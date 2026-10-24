@@ -298,22 +298,24 @@ window.addEventListener("osb3d-ready",()=>render());
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/+esm";
 import {GLTFLoader} from "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/loaders/GLTFLoader.js/+esm";
 import {OrbitControls} from "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js/+esm";
+import {RoomEnvironment} from "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/environments/RoomEnvironment.js/+esm";
 const host=document.getElementById("pv3d");
 let renderer,scene,camera,controls,current=null,curUrl=null,lastSw=null,fabricMat,hardMat;const cache={};
 function init(){
   renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});renderer.setPixelRatio(Math.min(2,devicePixelRatio));
-  renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.05;
+  renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.0;
   renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;host.appendChild(renderer.domElement);
   scene=new THREE.Scene();camera=new THREE.PerspectiveCamera(32,1,0.05,50);camera.position.set(-2.3,1.5,3.4);
-  scene.add(new THREE.HemisphereLight(0xfff6ea,0x6b5a50,1.6));
-  const d=new THREE.DirectionalLight(0xffffff,1.9);d.position.set(-2,4,3);d.castShadow=true;d.shadow.mapSize.set(1024,1024);
-  Object.assign(d.shadow.camera,{left:-2,right:2,top:2,bottom:-2});d.shadow.radius=6;scene.add(d);
-  const f=new THREE.DirectionalLight(0xffeedd,.6);f.position.set(3,2,-2);scene.add(f);
+  const pm=new THREE.PMREMGenerator(renderer);scene.environment=pm.fromScene(new RoomEnvironment(),0.04).texture;scene.environmentIntensity=.9;
+  scene.add(new THREE.HemisphereLight(0xfff6ea,0x6b5a50,.35));
+  const d=new THREE.DirectionalLight(0xfff4e6,1.5);d.position.set(-2.2,4,2.6);d.castShadow=true;d.shadow.mapSize.set(2048,2048);d.shadow.bias=-.0004;d.shadow.normalBias=.02;
+  Object.assign(d.shadow.camera,{left:-2,right:2,top:2,bottom:-2});d.shadow.radius=9;scene.add(d);
+  const f=new THREE.DirectionalLight(0xdfe6ff,.35);f.position.set(3,2,-2);scene.add(f);
   const ground=new THREE.Mesh(new THREE.PlaneGeometry(10,10),new THREE.ShadowMaterial({opacity:.22}));ground.rotation.x=-Math.PI/2;ground.receiveShadow=true;scene.add(ground);
   controls=new OrbitControls(camera,renderer.domElement);controls.target.set(0,.42,0);controls.enableDamping=true;controls.minDistance=1.6;controls.maxDistance=6;
   controls.maxPolarAngle=Math.PI/2-.05;controls.enablePan=false;
-  fabricMat=new THREE.MeshStandardMaterial({roughness:.92,metalness:0,color:0xffffff});
-  hardMat=new THREE.MeshStandardMaterial({roughness:.5,metalness:.1,color:0x222222});
+  fabricMat=new THREE.MeshPhysicalMaterial({roughness:.88,metalness:0,color:0xffffff,sheen:1,sheenRoughness:.7,sheenColor:new THREE.Color(1,1,1)});
+  hardMat=new THREE.MeshStandardMaterial({roughness:.45,metalness:.2,color:0x222222});
   new ResizeObserver(size).observe(host);size();
   renderer.setAnimationLoop(()=>{controls.update();renderer.render(scene,camera)});
 }
@@ -322,13 +324,21 @@ function fabricTexture(swid){return new Promise(ok=>{const i=new Image();i.onloa
   const x=c.getContext("2d");x.drawImage(i,0,0);const d=x.getImageData(0,0,c.width,c.height),p=d.data;let a=[0,0,0],n=p.length/4;
   for(let k=0;k<p.length;k+=4){a[0]+=p[k];a[1]+=p[k+1];a[2]+=p[k+2]}a=a.map(v=>v/n);
   for(let k=0;k<p.length;k+=4)for(let j=0;j<3;j++)p[k+j]=a[j]+(p[k+j]-a[j])*.65;x.putImageData(d,0,0);
-  const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;t.wrapS=t.wrapT=THREE.MirroredRepeatWrapping;t.repeat.set(1/.32,1/.32);t.anisotropy=8;ok(t)};
+  const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;t.wrapS=t.wrapT=THREE.MirroredRepeatWrapping;t.repeat.set(1/.32,1/.32);t.anisotropy=8;
+  const W=c.width,H=c.height,L=new Float32Array(W*H);for(let k=0;k<W*H;k++)L[k]=(.299*p[k*4]+.587*p[k*4+1]+.114*p[k*4+2])/255;
+  const nc=document.createElement("canvas");nc.width=W;nc.height=H;const nx=nc.getContext("2d"),nd=nx.createImageData(W,H),q=nd.data,st=3.2;
+  for(let y=0;y<H;y++)for(let x0=0;x0<W;x0++){const l=L[y*W+Math.max(0,x0-1)],r=L[y*W+Math.min(W-1,x0+1)],u=L[Math.max(0,y-1)*W+x0],dn=L[Math.min(H-1,y+1)*W+x0];
+    let dx=(l-r)*st,dy=(u-dn)*st,dz=1,m=Math.hypot(dx,dy,dz);const o=(y*W+x0)*4;q[o]=(dx/m*.5+.5)*255;q[o+1]=(dy/m*.5+.5)*255;q[o+2]=(dz/m*.5+.5)*255;q[o+3]=255}
+  nx.putImageData(nd,0,0);const nt=new THREE.CanvasTexture(nc);nt.wrapS=nt.wrapT=THREE.MirroredRepeatWrapping;nt.repeat.copy(t.repeat);nt.anisotropy=8;
+  ok({map:t,normal:nt,avg:a})};
   i.onerror=()=>ok(null);i.crossOrigin="anonymous";i.src=window.OSB_BASE+"sw/"+swid+".webp"})}
 async function show(url,swid,hard){
   if(!renderer)init();
   hardMat.color.set(hard);
   if(url===curUrl&&swid===lastSw)return;
-  if(swid!==lastSw){lastSw=swid;const tex=await fabricTexture(swid);if(fabricMat.map)fabricMat.map.dispose();fabricMat.map=tex;fabricMat.needsUpdate=true;}
+  if(swid!==lastSw){lastSw=swid;const tx=await fabricTexture(swid);if(fabricMat.map)fabricMat.map.dispose();if(fabricMat.normalMap)fabricMat.normalMap.dispose();
+    if(tx){fabricMat.map=tx.map;fabricMat.normalMap=tx.normal;fabricMat.normalScale=new THREE.Vector2(.7,.7);const A=tx.avg.map(v=>Math.min(1,v/255*1.35));fabricMat.sheenColor.setRGB(A[0],A[1],A[2])}else{fabricMat.map=null;fabricMat.normalMap=null}
+    fabricMat.needsUpdate=true;}
   if(url===curUrl)return;curUrl=url;const ld=document.getElementById("load3d");ld.hidden=false;
   try{
     if(!cache[url])cache[url]=fetch(url).then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}).then(js=>{
