@@ -303,18 +303,18 @@ const host=document.getElementById("pv3d");
 let renderer,scene,camera,controls,current=null,curUrl=null,lastSw=null,fabricMat,hardMat;const cache={};
 function init(){
   renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});renderer.setPixelRatio(Math.min(2,devicePixelRatio));
-  renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.0;
+  renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=.82;
   renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;host.appendChild(renderer.domElement);
   scene=new THREE.Scene();camera=new THREE.PerspectiveCamera(32,1,0.05,50);camera.position.set(-2.3,1.5,3.4);
   const pm=new THREE.PMREMGenerator(renderer);scene.environment=pm.fromScene(new RoomEnvironment(),0.04).texture;scene.environmentIntensity=.9;
   scene.add(new THREE.HemisphereLight(0xfff6ea,0x6b5a50,.35));
-  const d=new THREE.DirectionalLight(0xfff4e6,1.5);d.position.set(-2.2,4,2.6);d.castShadow=true;d.shadow.mapSize.set(2048,2048);d.shadow.bias=-.0004;d.shadow.normalBias=.02;
+  const d=new THREE.DirectionalLight(0xfff4e6,1.25);d.position.set(-2.2,4,2.6);d.castShadow=true;d.shadow.mapSize.set(2048,2048);d.shadow.bias=-.0004;d.shadow.normalBias=.02;
   Object.assign(d.shadow.camera,{left:-2,right:2,top:2,bottom:-2});d.shadow.radius=9;scene.add(d);
   const f=new THREE.DirectionalLight(0xdfe6ff,.35);f.position.set(3,2,-2);scene.add(f);
   const ground=new THREE.Mesh(new THREE.PlaneGeometry(10,10),new THREE.ShadowMaterial({opacity:.22}));ground.rotation.x=-Math.PI/2;ground.receiveShadow=true;scene.add(ground);
   controls=new OrbitControls(camera,renderer.domElement);controls.target.set(0,.42,0);controls.enableDamping=true;controls.minDistance=1.6;controls.maxDistance=6;
   controls.maxPolarAngle=Math.PI/2-.05;controls.enablePan=false;
-  fabricMat=new THREE.MeshPhysicalMaterial({roughness:.88,metalness:0,color:0xffffff,sheen:1,sheenRoughness:.7,sheenColor:new THREE.Color(1,1,1)});
+  fabricMat=new THREE.MeshPhysicalMaterial({roughness:.92,metalness:0,color:0xffffff,sheen:.55,sheenRoughness:.8,sheenColor:new THREE.Color(1,1,1)});
   hardMat=new THREE.MeshStandardMaterial({roughness:.45,metalness:.2,color:0x222222});
   new ResizeObserver(size).observe(host);size();
   renderer.setAnimationLoop(()=>{controls.update();renderer.render(scene,camera)});
@@ -337,7 +337,7 @@ async function show(url,swid,hard){
   hardMat.color.set(hard);
   if(url===curUrl&&swid===lastSw)return;
   if(swid!==lastSw){lastSw=swid;const tx=await fabricTexture(swid);if(fabricMat.map)fabricMat.map.dispose();if(fabricMat.normalMap)fabricMat.normalMap.dispose();
-    if(tx){fabricMat.map=tx.map;fabricMat.normalMap=tx.normal;fabricMat.normalScale=new THREE.Vector2(.7,.7);const A=tx.avg.map(v=>Math.min(1,v/255*1.35));fabricMat.sheenColor.setRGB(A[0],A[1],A[2])}else{fabricMat.map=null;fabricMat.normalMap=null}
+    if(tx){fabricMat.map=tx.map;fabricMat.normalMap=tx.normal;fabricMat.normalScale=new THREE.Vector2(.7,.7);const A=tx.avg.map(v=>Math.min(1,v/255*1.1));fabricMat.sheenColor.setRGB(A[0],A[1],A[2])}else{fabricMat.map=null;fabricMat.normalMap=null}
     fabricMat.needsUpdate=true;}
   if(url===curUrl)return;curUrl=url;const ld=document.getElementById("load3d");ld.hidden=false;
   try{
