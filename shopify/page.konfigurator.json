@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "main": {
+      "type": "osb-konfigurator",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

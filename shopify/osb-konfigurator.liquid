@@ -1,0 +1,370 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&display=swap">
+<style>.osb{
+  --ivory:#f6f1e9; --paper:#fffdf9; --espresso:#2e211b; --cocoa:#6b5a50; --line:#e3d9cc;
+  --bordeaux:#7a2635; --bordeaux-soft:#f1e3e2; --stage:#ebe2d5; --ok:#3d6b4f;
+  --display:"Bodoni Moda", "Didot", Georgia, serif;
+  --body:"Jost", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+}.osb *{box-sizing:border-box}.osb{background:var(--ivory);color:var(--espresso);font-family:var(--body);font-weight:300;font-size:15px;line-height:1.55}.osb .wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px}.osb header{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:14px}.osb .brand{font-family:var(--display);font-size:30px;letter-spacing:.01em;line-height:1}.osb .brand em{color:var(--bordeaux);font-style:italic}.osb .claim{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--cocoa);margin-top:6px}.osb .draft{font-size:12px;color:var(--cocoa);max-width:42ch}.osb .grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:32px;margin-top:24px;align-items:start}@media (max-width:900px){.osb .grid{grid-template-columns:1fr}}.osb .stage{position:sticky;top:calc(var(--header-height,72px) + 12px);background:var(--stage);border-radius:4px;padding:24px;display:flex;flex-direction:column;gap:16px}@media (max-width:900px){.osb .stage{position:static}}.osb .stage h1{font-family:var(--display);font-weight:400;font-size:clamp(28px,4vw,40px);line-height:1.05;margin:0;text-wrap:balance}.osb .stage .sub{color:var(--cocoa);font-size:14px;margin-top:4px}.osb .svgbox{background:var(--paper);border-radius:3px;aspect-ratio:16/10;max-width:100%;display:grid;place-items:center;overflow:hidden}.osb .svgbox svg{width:100%;height:100%}.osb dl.spec{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:0;font-size:14px}.osb dl.spec dt{color:var(--cocoa);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding-top:3px}.osb dl.spec dd{margin:0;min-width:0}.osb .sim{font-size:13px;color:var(--bordeaux);text-decoration:none;border-bottom:1px solid currentColor;align-self:flex-start}.osb .steps{display:flex;flex-direction:column;gap:28px}.osb section.step{display:flex;flex-direction:column;gap:12px}.osb .step h2{font-family:var(--display);font-weight:400;font-size:22px;margin:0;display:flex;gap:10px;align-items:baseline}.osb .step h2 span{font-family:var(--body);font-size:11px;letter-spacing:.18em;color:var(--bordeaux);text-transform:uppercase}.osb .hint{font-size:13px;color:var(--cocoa);margin:0}.osb .chips{display:flex;flex-wrap:wrap;gap:8px}.osb .chip{font:inherit;font-size:13px;font-weight:400;border:1px solid var(--line);background:var(--paper);color:var(--espresso);padding:7px 14px;border-radius:999px;cursor:pointer}.osb .chip[aria-pressed="true"]{background:var(--espresso);color:var(--paper);border-color:var(--espresso)}.osb .chip:disabled{opacity:.4;cursor:not-allowed}.osb .models{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}.osb .model{font:inherit;text-align:left;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:10px 12px 12px;cursor:pointer;color:var(--espresso);display:flex;flex-direction:column;gap:4px}.osb .model img{width:100%;height:74px;object-fit:contain}.osb .svgbox{position:relative}.osb .svgbox canvas{max-width:92%;max-height:88%;display:block}.osb #pv3d{position:absolute;inset:0;display:none;cursor:grab;touch-action:none}.osb #pv3d canvas{width:100%!important;height:100%!important;max-width:none;max-height:none}.osb .svgbox[data-mode="3d"] #pv3d{display:block}.osb .svgbox[data-mode="3d"] #pvCanvas{visibility:hidden}.osb .modes{display:flex;gap:6px;flex-wrap:wrap}.osb .modes[hidden]{display:none}.osb .load3d{position:absolute;inset:auto 0 10px 0;text-align:center;font-size:12px;color:var(--cocoa)}.osb .photonote{font-size:11px;color:var(--cocoa);margin-top:-8px}@media (max-width:900px){.osb .stage{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;padding:12px 14px;gap:8px;flex-direction:row;align-items:center;border-radius:0 0 4px 4px}.osb .stage>div:first-child{order:2;flex:1;min-width:0}.osb .stage h1{font-size:22px}.osb .stage .sub,.osb .stage dl.spec,.osb .stage .sim,.osb .photonote{display:none}.osb .svgbox{order:1;width:42%;flex:none;aspect-ratio:16/10}}.osb .model b{font-family:var(--display);font-weight:500;font-size:17px}.osb .model small{color:var(--cocoa);font-size:12px;line-height:1.35}.osb .model[aria-pressed="true"]{border-color:var(--bordeaux);box-shadow:inset 0 0 0 1px var(--bordeaux)}.osb .fabrics{display:flex;flex-direction:column;gap:8px}.osb .fab{border:1px solid var(--line);background:var(--paper);border-radius:3px;padding:12px}.osb .fab[data-on="true"]{border-color:var(--bordeaux)}.osb .fabhead{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}.osb .fabhead b{font-family:var(--display);font-weight:500;font-size:17px}.osb .tags{display:flex;gap:6px;flex-wrap:wrap}.osb .tag{font-size:11px;letter-spacing:.06em;padding:2px 8px;border-radius:999px;background:var(--bordeaux-soft);color:var(--bordeaux)}.osb .fabmeta{font-size:12px;color:var(--cocoa);margin:4px 0 8px}.osb .sw{display:flex;flex-wrap:wrap;gap:6px}.osb .swatch{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);cursor:pointer;padding:0}.osb .sw .more{padding:4px 12px;font-size:12px}.osb .swatch[aria-pressed="true"]{outline:2px solid var(--bordeaux);outline-offset:2px}.osb label.f{display:flex;flex-direction:column;gap:4px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--cocoa)}.osb input,.osb select,.osb textarea{font:inherit;font-size:15px;text-transform:none;letter-spacing:0;color:var(--espresso);background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:9px 10px;width:100%}.osb .form{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media (max-width:520px){.osb .form{grid-template-columns:1fr}}.osb .form .full{grid-column:1/-1}.osb .btn{font:inherit;font-weight:400;font-size:14px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--espresso);background:transparent;color:var(--espresso);padding:12px 18px;border-radius:2px;cursor:pointer}.osb .btn.primary{background:var(--bordeaux);border-color:var(--bordeaux);color:#fff}.osb .btnrow{display:flex;gap:10px;flex-wrap:wrap}.osb .positions{display:flex;flex-direction:column;gap:6px}.osb .pos{display:grid;grid-template-columns:28px 1fr auto;gap:10px;align-items:center;background:var(--paper);border:1px solid var(--line);padding:8px 10px;border-radius:3px;font-size:14px}.osb .pos i{width:24px;height:24px;border-radius:50%;display:block;border:1px solid var(--line)}.osb .pos button{font:inherit;font-size:12px;background:none;border:0;color:var(--cocoa);cursor:pointer;text-decoration:underline}.osb .empty{font-size:13px;color:var(--cocoa);border:1px dashed var(--line);padding:12px;border-radius:3px}.osb pre#out{white-space:pre-wrap;background:var(--paper);border:1px solid var(--line);padding:14px;border-radius:3px;font-size:13px;font-family:var(--body);margin:0;max-height:360px;overflow:auto}.osb .toast{font-size:13px;color:var(--ok)}.osb :focus-visible{outline:2px solid var(--bordeaux);outline-offset:2px}@media (prefers-reduced-motion:no-preference){.osb .svgbox path,.osb .svgbox rect{transition:fill .35s ease}}.osb{padding-block:8px 40px}.osb .ok{background:#e7efe8;color:#2d5a3c;padding:12px 14px;border-radius:3px;font-size:14px}.osb .err{background:#f4e2e2;color:#7a2635;padding:12px 14px;border-radius:3px;font-size:14px}</style>
+
+
+<div class="osb"><div class="wrap">
+  <header>
+    <div>
+      <div class="brand">onlysofa<em>beds</em></div>
+      <div class="claim">Sleep · Design · Hospitality</div>
+    </div>
+    <p class="draft">Projekt-Konfigurator für Hotels, Apartments, Pflege und Architekten. Preise auf Anfrage.</p>
+  </header>
+
+  <div class="grid">
+    <aside class="stage" aria-label="Vorschau">
+      <div>
+        <h1 id="pvName">Indy</h1>
+        <div class="sub" id="pvSub"></div>
+      </div>
+      <div class="modes" id="modes" hidden><button class="chip" data-mode="foto" aria-pressed="true">Foto</button><button class="chip" data-mode="3d" aria-pressed="false">3D drehen</button></div>
+      <div class="svgbox" id="pvSvg" data-mode="foto"><canvas id="pvCanvas" aria-label="Vorschau in gewähltem Stoff"></canvas><div id="pv3d" aria-label="3D-Ansicht, mit Maus oder Finger drehen"></div><div class="load3d" id="load3d" hidden>3D-Modell wird geladen …</div></div>
+      <p class="photonote" id="pvNote">Farbvorschau aus FAMA-Rendering, echte Stoffmuster auf Anfrage.</p>
+      <dl class="spec" id="pvSpec"></dl>
+      <a class="sim" href="https://famasofas.sim3d.es/" target="_blank" rel="noopener">Im 3D-Simulator ansehen ↗</a>
+    </aside>
+
+    <main class="steps">
+      <section class="step">
+        <h2><span>Schritt 1</span>Modell</h2>
+        <div class="chips" role="group" aria-label="Typ">
+          <button class="chip" data-type="sofa" aria-pressed="true">Schlafsofas</button>
+          <button class="chip" data-type="sessel" aria-pressed="false">Schlafsessel</button>
+        </div>
+        <div class="chips" role="group" aria-label="Fuss">
+          <button class="chip" data-leg="alle" aria-pressed="true">Alle</button>
+          <button class="chip" data-leg="verdeckt" aria-pressed="false">Verdeckter Fuss</button>
+          <button class="chip" data-leg="tief" aria-pressed="false">Tiefer Fuss</button>
+          <button class="chip" data-leg="hoch" aria-pressed="false">Hoher Fuss</button>
+        </div>
+        <div class="models" id="models"></div>
+      </section>
+
+      <section class="step">
+        <h2><span>Schritt 2</span>Ausführung</h2>
+        <div id="variantBox" class="steps" style="gap:12px"></div>
+      </section>
+
+      <section class="step">
+        <h2><span>Schritt 3</span>Matratze</h2>
+        <p class="hint">Liegefläche 195 cm lang. Masse gemäss FAMA-Datenblättern (Stand 14.10.2026), Abweichungen von wenigen cm möglich.</p>
+        <div id="mattBox" class="steps" style="gap:12px"></div>
+      </section>
+
+      <section class="step">
+        <h2><span>Schritt 4</span>Stoff &amp; Farbe</h2>
+        <div class="chips" role="group" aria-label="Stofffilter">
+          <button class="chip" data-ff="alle" aria-pressed="true">Alle</button>
+          <button class="chip" data-ff="neu" aria-pressed="false">Neu 2026</button>
+          <button class="chip" data-ff="pflege" aria-pressed="false">Pflegeleicht</button>
+          <button class="chip" data-ff="fr" aria-pressed="false">Schwer entflammbar</button>
+          <button class="chip" data-ff="uni" aria-pressed="false">Uni</button>
+          <button class="chip" data-ff="muster" aria-pressed="false">Muster</button>
+          <button class="chip" data-ff="velours" aria-pressed="false">Velours, Bouclé, Cord</button>
+        </div>
+        <label class="f">Stoff suchen<input id="fq" type="search" placeholder="z. B. Axis 21 oder Titan" autocomplete="off"></label>
+        <div class="hint" id="fcount">
+        </div>
+        <div class="fabrics" id="fabrics"></div>
+        <p class="hint">Aus den FAMA-Kollektionen 2023–2026. Über 1000 weitere Stoffe auf Anfrage, Musterbox für die Bemusterung möglich.</p>
+      </section>
+
+      <section class="step">
+        <h2><span>Schritt 5</span>Stückzahl</h2>
+        <div class="form">
+          <label class="f">Anzahl Stück<input id="qty" type="number" min="1" value="12"></label>
+          <label class="f">Einsatzort<select id="room"><option>Hotelzimmer</option><option>Serviced Apartment</option><option>Pflegezimmer</option><option>Klinik / Reha</option><option>Familienzimmer</option><option>Lounge / Gemeinschaftsraum</option></select></label>
+        </div>
+        <div class="btnrow"><button class="btn" id="addPos">Zum Projekt hinzufügen</button><span class="toast" id="addToast" aria-live="polite"></span></div>
+      </section>
+
+      <section class="step">
+        <h2><span>Projekt</span>Positionen</h2>
+        <div class="positions" id="positions"></div>
+      </section>
+
+      <section class="step">
+        <h2><span>Anfrage</span>Ihre Angaben</h2>
+        {%- form 'contact', id: 'req', class: 'form' -%}
+          {%- if form.posted_successfully? -%}<p class="ok full" id="reqOk">Danke! Ihre Projektanfrage ist bei uns eingegangen. Wir melden uns innerhalb von 1–2 Arbeitstagen.</p>{%- endif -%}
+          {%- if form.errors -%}<p class="err full">Bitte prüfen Sie Ihre Angaben: {{ form.errors | default_errors }}</p>{%- endif -%}
+          <label class="f">Firma<input id="co" name="contact[Firma]" placeholder="z. B. Hotel Seeblick AG" required></label>
+          <label class="f">Ansprechperson<input id="cp" name="contact[name]" placeholder="Vorname Name" required></label>
+          <label class="f">E-Mail<input id="em" type="email" name="contact[email]" placeholder="name@firma.ch" required></label>
+          <label class="f">Telefon<input id="ph" name="contact[phone]" placeholder="+41 …"></label>
+          <label class="f">Projekt<input id="pj" name="contact[Projekt]" placeholder="z. B. Renovation 2. OG, 24 Zimmer"></label>
+          <label class="f">Gewünschter Liefertermin<input id="dt" type="month" name="contact[Liefertermin]"></label>
+          <label class="f full">Brandschutz<select id="fr" name="contact[Brandschutz]"><option>Keine besondere Anforderung</option><option>Schwer entflammbar erforderlich</option><option>Noch abklären</option></select></label>
+          <label class="f full">Bemerkungen<textarea id="nt" rows="3" name="contact[Bemerkungen]" placeholder="z. B. Musterbox mit Stoffen gewünscht"></textarea></label>
+          <textarea id="reqBody" name="contact[body]" hidden></textarea>
+          <div class="btnrow full"><button class="btn primary" type="submit">Projektanfrage senden</button></div>
+        {%- endform -%}
+        <pre id="out" hidden></pre>
+        <div class="btnrow" id="outBtns" hidden><button class="btn" id="copy">Text kopieren</button><span class="toast" id="copyToast" aria-live="polite"></span></div>
+        <p class="hint">Die Anfrage geht direkt an onlysofabeds. Unverbindlich und kostenlos.</p>
+      </section>
+    </main>
+  </div>
+</div>
+</div>
+
+<script>window.OSB_BASE={{ section.settings.asset_base | json }};var OSB_BASE=window.OSB_BASE;</script>
+{% raw %}<script>
+/* Masse aus FAMA «Fichas técnicas» 14.10.2026. body = Grundkörper ohne Armlehnen je Matratzenbreite; arms = [Name, Breite pro Seite in cm] */
+const BODY={80:102,140:162,160:182};
+const ARMS={A:["A",4],T:["T mit Ablage",5],R:["R",20],V:["V",15],B:["B",15],Z:["Z",25],Ze:["Ze",17],W:["W",3],M:["M",8.5],RV:["RV",12],Cali:["Cali",26]};
+const arms=(...k)=>k.map(x=>ARMS[x]);
+const M=[
+ {id:"indy",n:"Indy",t:"sofa",leg:"verdeckt",d:"Motorisiertes Schlafsofa, Bedienung per Fernbedienung oder App",
+  v:["3 ohne Armlehnen · 194 cm","4 ohne Armlehnen · 204 cm","3B mit Armlehnen · 220 cm","4B mit Armlehnen · 230 cm","3BR gerade Armlehnen · 220 cm","4BR gerade Armlehnen · 230 cm"],
+  w:[],th:[],q:[],matt:"Liegefläche 140 cm breit, motorisch",legs:["Kunststoff schwarz 3 cm"],dim:{h:95,t:105,sh:46}},
+ {id:"apolo",n:"Apolo",t:"sofa",leg:"verdeckt",d:"Italienische Öffnung, 10 Armlehnen zur Wahl",
+  arms:arms("A","T","R","V","B","Z","W","M","RV","Cali"),w:[80,140,160],th:[14,18],q:["Standard","Premium"],legs:["verdeckt"],dim:{h:96,t:95,sh:48,open:205}},
+ {id:"bolero",n:"Bolero",t:"sofa",leg:"verdeckt",d:"Tiefer Sitz, klassische Sofa-Optik, auch in Leder",
+  arms:arms("R","V","B","A","W","M","RV","Cali"),w:[80,140,160],th:[14,18],q:["Standard","Premium"],legs:["Holz Wengé","Holz Bolero"],dim:{h:93,t:95,sh:46,open:205},note:"Mit Chaiselongue nur 14-cm-Matratze"},
+ {id:"bopy",n:"Bopy",t:"sofa",leg:"verdeckt",d:"Runde Formen, tiefe Rückenlehne",
+  v:["3-Sitzer · 176 cm","4-Sitzer · 196 cm"],vw:[140,160],w:[140,160],th:[14,18],q:["Standard","Premium"],legs:["verdeckt"],dim:{h:91,t:95,sh:45,open:205}},
+ {id:"rudy",n:"Rudy",t:"sofa",leg:"verdeckt",d:"Hohe Rückenlehne, Memory-Foam-Matratze",
+  v:["3-Sitzer · 183 cm","4-Sitzer · 203 cm"],vw:[140,160],w:[140,160],th:[14,18],q:["Standard","Premium"],legs:["verdeckt"],dim:{h:100,t:95,sh:45,open:205}},
+ {id:"zeus",n:"Zeus",t:"sofa",leg:"tief",d:"Tiefe Rückenlehne, ideal für Objekt-Einsatz",
+  arms:arms("Ze","Z","R","V","B","W","M"),w:[80,140,160],th:[14,18],q:["Standard","Premium"],legs:["Metall schwarz 7 cm","Sockel Messing matt gold 7 cm","Holz Natur 7 cm","Holz Nuss 7 cm","Holz Schwarz 7 cm"],dim:{h:80,t:95,sh:49,open:212}},
+ {id:"ravel",n:"Ravel",t:"sofa",leg:"tief",d:"Gepolsterter Sitz, wirkt wie ein normales Sofa",
+  arms:arms("R","V","B","A","W","M","RV"),w:[80,140,160],th:[13,14,18],q:["Standard","Premium"],legs:["tiefer Fuss"],fr13:true,dim:{h:95,t:95,sh:48,open:205}},
+ {id:"hermes",n:"Hermes",t:"sofa",leg:"tief",d:"Gerade Linien, 3 Armlehnen inkl. ultraschmal",
+  arms:arms("R","V","W"),w:[80,140,160],th:[13,14,18],q:["Standard","Premium"],legs:["tiefer Fuss"],fr13:true,dim:{h:98,t:95,sh:51,open:205}},
+ {id:"sheldon",n:"Sheldon",t:"sofa",leg:"verdeckt",d:"Kompakt für kleine Zimmer",
+  v:["3-Sitzer · 159 cm"],vw:[140],w:[140],th:[14],q:["Standard","Premium"],legs:["verdeckt"],dim:{h:88,t:90,sh:45,open:202}},
+ {id:"dali",n:"Dalí",t:"sofa",leg:"hoch",d:"Bettfunktion unsichtbar, gerade Armlehnen",
+  arms:[["fest",12]],w:[140,160],th:[14],q:["Standard","Premium"],legs:["Y-Fuss Holz Natur 12 cm","Y-Fuss Holz Nuss 12 cm"],dim:{h:97,t:95,sh:47,open:205}},
+ {id:"gala",n:"Gala",t:"sofa",leg:"hoch",d:"Geschwungene Armlehnen, hohe Holzfüsse",
+  arms:[["fest",15]],w:[140,160],th:[14],q:["Standard","Premium"],legs:["Y-Fuss Holz Natur 12 cm","Y-Fuss Holz Nuss 12 cm"],dim:{h:97,t:95,sh:47,open:205}},
+ {id:"helsinki",n:"Helsinki",t:"sofa",leg:"hoch",d:"Leicht und elegant, schräger Zylinderfuss",
+  arms:[["H · 66 cm hoch",12],["Hb · 56 cm hoch",12]],w:[140,160],th:[14],q:["Standard","Premium"],legs:["Holz Natur 10 cm","Holz Wengé 10 cm","Holz Nuss 10 cm"],dim:{h:93,t:95,sh:51,open:205}},
+ {id:"opera",n:"Opera",t:"sofa",leg:"hoch",d:"Hoher Fuss, Saugroboter passt darunter",
+  arms:[["O",12],["Ox",12],["Th",5],["Wh",3]],w:[80,140,160],th:[14],q:["Standard","Premium"],legs:["hoher Fuss"],dim:{h:96,t:95,sh:49,open:205}},
+ {id:"selene",n:"Selene",t:"sofa",leg:"hoch",d:"Modulares Relax-Sofa, öffnet fast flach als Gelegenheitsbett",
+  v:["2V+2LR · 288 cm","2V+3MR · 314 cm","V+2MR+GV2 · 314 cm","Eckkombination nach Plan"],w:[],th:[],q:[],matt:"Gelegenheitsbett, keine separate Matratze",legs:["Metall anthrazit 8 cm","Metall anthrazit 12 cm","Holz Natur","Holz Nuss","Holz Schwarz"],dim:{h:98,t:105,sh:46,open:170}},
+ {id:"sheldon-s",n:"Sheldon",t:"sessel",leg:"verdeckt",d:"Kompakter Schlafsessel",v:["Sessel · 99 cm"],w:[80],th:[14],q:["Standard","Premium"],legs:["verdeckt"],dim:{h:88,t:90,sh:45,open:202}},
+ {id:"bopy-s",n:"Bopy",t:"sessel",leg:"verdeckt",d:"Runder Schlafsessel",v:["Sessel · 116 cm"],w:[80],th:[14,18],q:["Standard","Premium"],legs:["verdeckt"],dim:{h:91,t:95,sh:45,open:205}},
+ {id:"bolero-s",n:"Bolero",t:"sessel",leg:"verdeckt",d:"Schlafsessel, auch in Leder",arms:arms("R","V","B","A","W","M","RV","Cali"),w:[80],th:[14,18],q:["Standard","Premium"],legs:["Holz Wengé","Holz Bolero"],dim:{h:93,t:95,sh:46,open:205}},
+ {id:"hermes-s",n:"Hermes",t:"sessel",leg:"tief",d:"Gerade Linien",arms:arms("R","V","W"),w:[80],th:[13,14,18],q:["Standard","Premium"],legs:["tiefer Fuss"],fr13:true,dim:{h:95,t:95,sh:49,open:205}},
+ {id:"dali-s",n:"Dalí",t:"sessel",leg:"hoch",d:"Schlafsessel mit Y-Fuss",v:["Sessel · 126 cm"],w:[80],th:[14],q:["Standard","Premium"],legs:["Y-Fuss Holz Natur 12 cm","Y-Fuss Holz Nuss 12 cm"],dim:{h:97,t:95,sh:47,open:205}},
+ {id:"gala-s",n:"Gala",t:"sessel",leg:"hoch",d:"Geschwungener Schlafsessel",v:["Sessel · 132 cm"],w:[80],th:[14],q:["Standard","Premium"],legs:["Y-Fuss Holz Natur 12 cm","Y-Fuss Holz Nuss 12 cm"],dim:{h:97,t:95,sh:47,open:205}},
+ {id:"helsinki-s",n:"Helsinki",t:"sessel",leg:"hoch",d:"Schlafsessel mit Zylinderfuss",v:["Sessel · 126 cm"],w:[80],th:[14],q:["Standard","Premium"],legs:["Holz Natur 10 cm","Holz Wengé 10 cm","Holz Nuss 10 cm"],dim:{h:93,t:95,sh:51,open:205}}
+];
+M.forEach(m=>{if(m.arms)m.v=m.arms.map(a=>"Armlehne "+a[0]+(a[0]==="fest"?"":" · "+String(a[1]).replace(".",",")+" cm"))});
+function totalW(m){
+  if(m.arms&&S.w)return BODY[S.w]+2*m.arms[S.v][1];
+  const r=/· (\d+) cm/.exec(m.v[S.v]||"");return r?+r[1]:null}
+const F=[{"id":"picar","n":"Picar","y":"2026","meta":"Neu 2026 · Uni mit Struktur","cat":"uni","pflege":0,"fr":0,"c":[["05","#cfc2b7","picar-05"],["09","#aba298","picar-09"],["17","#a38b75","picar-17"],["29","#c5b7ac","picar-29"],["40","#a19f92","picar-40"],["45","#4c525d","picar-45"],["49","#adafaa","picar-49"],["51","#b1b1ac","picar-51"],["53","#4a4a49","picar-53"],["60","#cfc3b6","picar-60"],["62","#c6bcb2","picar-62"],["71","#b9a492","picar-71"]]},{"id":"ritmo","n":"Ritmo","y":"2026","meta":"Neu 2026 · Jacquard, grafisch","cat":"muster","pflege":0,"fr":0,"c":[["02 Crudo","#f4f3f0","ritmo-02-crudo"],["08 Visón","#bab2a5","ritmo-08-vison"],["12 Chocolate","#907f6d","ritmo-12-chocolate"],["20 Miel","#deb683","ritmo-20-miel"],["32 Verde","#979e88","ritmo-32-verde"],["40 Cielo","#b0bfc6","ritmo-40-cielo"],["45 Tejano","#8399a7","ritmo-45-tejano"],["52 Ceniza","#8b9289","ritmo-52-ceniza"],["53 Antracita","#74726d","ritmo-53-antracita"],["54 Gris","#adb7b5","ritmo-54-gris"],["64 Burdeos","#9e645f","ritmo-64-burdeos"]]},{"id":"armonia","n":"Armonia","y":"2026","meta":"Neu 2026 · Jacquard, passend zu Ritmo","cat":"muster","pflege":0,"fr":0,"c":[["02 Crudo","#f0eeea","armonia-02-crudo"],["08 Visón","#cec4b8","armonia-08-vison"],["12 Chocolate","#928373","armonia-12-chocolate"],["20 Miel","#e7c290","armonia-20-miel"],["32 Verde","#939885","armonia-32-verde"],["40 Cielo","#b4c3c9","armonia-40-cielo"],["45 Tejano","#8497a2","armonia-45-tejano"],["52 Ceniza","#8c938a","armonia-52-ceniza"],["53 Antracita","#7d7b77","armonia-53-antracita"],["54 Gris","#abb5b3","armonia-54-gris"],["64 Burdeos","#b67c75","armonia-64-burdeos"]]},{"id":"kunstdruck-2026","n":"Kunstdruck 2026","y":"2026","meta":"Neu 2026 · Digitaldruck","cat":"muster","pflege":0,"fr":0,"c":[["Random","#c7c1b3","random"],["Angle","#d9cab7","angle"],["Banban","#cdb6a0","banban"],["Five","#dbbda3","five"],["Verse","#d4c2b2","verse"],["Flora","#dfdcce","flora"],["Ink","#ddcdbb","ink"],["Clue","#e6c3b6","clue"]]},{"id":"delta","n":"Delta","y":"2026","meta":"Neu 2026 · geometrisches Muster","cat":"muster","pflege":0,"fr":0,"c":[["01GRIS","#b2aea5","delta-01gris"],["02 Rosa","#ddc4b9","delta-02-rosa"],["03 Ocre","#d2c3a3","delta-03-ocre"],["04 Teja","#bc9f87","delta-04-teja"],["05 Verde","#a2a17d","delta-05-verde"],["06 Azul","#a2aba7","delta-06-azul"]]},{"id":"gamma","n":"Gamma","y":"2026","meta":"Neu 2026 · geometrisches Muster","cat":"muster","pflege":0,"fr":0,"c":[["01 Gris","#b0aba1","gamma-01-gris"],["02 Rosa","#dac2b5","gamma-02-rosa"],["03 Ocre","#d1c2a0","gamma-03-ocre"],["04 Teja","#ba9f87","gamma-04-teja"],["05 Verde","#a2a07d","gamma-05-verde"],["06 Azul","#9eaaa5","gamma-06-azul"]]},{"id":"gaudi","n":"Gaudi","y":"2026","meta":"Neu 2026 · Mosaik-Muster","cat":"muster","pflege":0,"fr":0,"c":[["01GRIS","#b5b4ad","gaudi-01gris"],["02 Rosa","#e1c9c0","gaudi-02-rosa"],["03 Ocre","#d7c9a1","gaudi-03-ocre"],["04 Teja","#d1baa7","gaudi-04-teja"],["05 Verde","#b1b79b","gaudi-05-verde"],["06 Azul","#a0b2b0","gaudi-06-azul"]]},{"id":"vitral","n":"Vitral","y":"2026","meta":"Neu 2026 · Mosaik-Muster","cat":"muster","pflege":0,"fr":0,"c":[["01 Gris","#b7b6b0","vitral-01-gris"],["02 Rosa","#e2cbc2","vitral-02-rosa"],["03 Ocre","#d9cba6","vitral-03-ocre"],["04 Teja","#d2beab","vitral-04-teja"],["05 Verde","#b6bba0","vitral-05-verde"],["06 Azul","#a2b3b1","vitral-06-azul"]]},{"id":"titan","n":"Titan","y":"2026","meta":"Velours-Optik · Aquaclean · 60'000 Touren · waschbar 30°","cat":"velours","pflege":1,"fr":0,"c":[["15","#66242e","titan-15"],["27","#4f1e22","titan-27"],["29","#93494e","titan-29"],["30","#b7401c","titan-30"],["43","#5b5e45","titan-43"],["45","#767572","titan-45"],["46","#a4a19a","titan-46"],["48","#b99760","titan-48"],["49","#b77f6c","titan-49"],["51","#cfbda6","titan-51"],["53","#8899a8","titan-53"],["69","#57554f","titan-69"],["80","#9d908e","titan-80"],["92","#353d2a","titan-92"],["93","#363e39","titan-93"],["94","#5b6c7b","titan-94"],["96","#8b1d23","titan-96"],["144","#50423a","titan-144"],["250","#aea094","titan-250"],["271","#868d89","titan-271"],["300","#bcbdb6","titan-300"],["311","#1a293f","titan-311"],["324","#cbc8c3","titan-324"],["347","#acc1c0","titan-347"],["407","#646555","titan-407"],["703","#304955","titan-703"]]},{"id":"axis","n":"Axis","y":"2025","meta":"Uni · 52% recyceltes Polyester · 90'000 Touren · waschbar 30°","cat":"uni","pflege":1,"fr":0,"c":[["05","#d9d8c8","axis-05"],["06","#b29e5c","axis-06"],["07","#b1ad9a","axis-07"],["08","#888475","axis-08"],["09","#9f5d2a","axis-09"],["11","#cdc6b6","axis-11"],["12","#7d6d5e","axis-12"],["15","#795039","axis-15"],["16","#c39d6b","axis-16"],["18","#beab9a","axis-18"],["19","#d1982b","axis-19"],["20","#b8844e","axis-20"],["21","#dd6032","axis-21"],["22","#7e3632","axis-22"],["24","#db5820","axis-24"],["26","#a15f3e","axis-26"],["27","#cf856f","axis-27"],["30","#345132","axis-30"],["31","#203f4e","axis-31"],["32","#afb18b","axis-32"],["33","#516863","axis-33"],["34","#5a7a77","axis-34"],["36","#3b6d3b","axis-36"],["37","#94a67a","axis-37"],["38","#607451","axis-38"],["39","#7d8c79","axis-39"],["40","#9dc1c0","axis-40"],["41","#125ea5","axis-41"],["43","#4b6b7d","axis-43"],["46","#203a65","axis-46"],["49","#4d6976","axis-49"],["50","#d1d1d1","axis-50"],["51","#c5c4c4","axis-51"],["53","#4e4b4b","axis-53"],["54","#979596","axis-54"],["56","#576f6a","axis-56"],["58","#a1735c","axis-58"],["59","#6c706f","axis-59"],["60","#d2615a","axis-60"],["61","#e2b484","axis-61"],["62","#c09484","axis-62"],["64","#954443","axis-64"],["65","#a93b41","axis-65"],["66","#e9a9b1","axis-66"],["71","#de845b","axis-71"],["91","#ab121e","axis-91"],["92","#3a5658","axis-92"],["94","#b4a976","axis-94"],["95","#4d3d30","axis-95"]]},{"id":"glow","n":"Glow","y":"2025","meta":"Uni, natürliche Optik · Aquaclean","cat":"uni","pflege":1,"fr":0,"c":[["001","#e8e6e1","glow-001"],["002","#d8d2c5","glow-002"],["003","#9c9181","glow-003"],["052","#70634a","glow-052"],["069","#8a8176","glow-069"],["100","#a68744","glow-100"],["136","#b6b5b0","glow-136"],["214","#656460","glow-214"],["250","#b5ada2","glow-250"],["324","#d5d2cd","glow-324"],["503","#977568","glow-503"],["521","#d2d1cd","glow-521"],["528","#718277","glow-528"],["537","#a5b2b2","glow-537"],["553","#915e3f","glow-553"],["602","#676b75","glow-602"]]},{"id":"darol","n":"Darol","y":"2025","meta":"Uni · Aquaclean","cat":"uni","pflege":1,"fr":0,"c":[["051","#d6cdb4","darol-051"],["090","#beae9b","darol-090"],["271","#8f9594","darol-271"],["300","#c4c4bf","darol-300"],["324","#d3afa5","darol-324"],["347","#a6b8b1","darol-347"],["349","#9c907e","darol-349"],["613","#c0b5b6","darol-613"],["617","#929683","darol-617"],["753","#38454d","darol-753"]]},{"id":"maori","n":"Maori","y":"2025","meta":"Jacquard","cat":"muster","pflege":0,"fr":0,"c":[["04","#8f9594","maori-04"],["30","#b8bfba","maori-30"],["07","#c6c4c5","maori-07"],["45","#b7b7bb","maori-45"]]},{"id":"space","n":"Space","y":"2025","meta":"Easyclean · Serie 5","cat":"uni","pflege":1,"fr":0,"c":[["01","#ddd9d4","space-01"],["02","#dad4cb","space-02"],["03","#d0c3b6","space-03"],["14","#b5b3ae","space-14"],["15","#888a88","space-15"]]},{"id":"cosmos","n":"Cosmos","y":"2025","meta":"Sternbild-Druck · Easyclean","cat":"muster","pflege":1,"fr":0,"c":[["Cosmos","#e0d7ce","cosmos"]]},{"id":"polynesia","n":"Polynesia","y":"2025","meta":"Muster · Easyclean","cat":"muster","pflege":1,"fr":0,"c":[["01","#d9cfc1","polynesia-01"],["02","#e9d3bf","polynesia-02"],["03","#e2d8ce","polynesia-03"],["04","#e0d5c2","polynesia-04"]]},{"id":"quetzal","n":"Quetzal","y":"2025","meta":"Muster · Easyclean","cat":"muster","pflege":1,"fr":0,"c":[["35","#e3d3bc","quetzal-35"],["45","#dfd4bb","quetzal-45"],["54","#dbd5c0","quetzal-54"],["89","#dcd4be","quetzal-89"]]},{"id":"zodiaco","n":"Zodiaco","y":"2025","meta":"Muster · Easyclean","cat":"muster","pflege":1,"fr":0,"c":[["32 Negro","#dfd0c2","zodiaco-32-negro"],["35 Teja","#e3d0c1","zodiaco-35-teja"],["37 Verde","#e1d4c3","zodiaco-37-verde"],["40 Azul","#e2d4c6","zodiaco-40-azul"],["45 Ocre","#e5d3c2","zodiaco-45-ocre"]]},{"id":"komet","n":"Komet","y":"2025","meta":"Feine Streifen · Easyclean","cat":"muster","pflege":1,"fr":0,"c":[["32","#d5c8bb","komet-32"],["35","#e1ccbd","komet-35"],["45","#e3d1be","komet-45"],["58","#dacebf","komet-58"],["67","#dacdc1","komet-67"]]},{"id":"maya","n":"Maya","y":"2025","meta":"Muster · Easyclean","cat":"muster","pflege":1,"fr":0,"c":[["07","#cdc2b4","maya-07"],["32","#625d59","maya-32"]]},{"id":"prisma","n":"Prisma","y":"2025","meta":"Muster · Easyclean","cat":"muster","pflege":1,"fr":0,"c":[["07","#e2d4c7","prisma-07"],["32","#d5c7bb","prisma-32"]]},{"id":"horizon","n":"Horizon","y":"2025","meta":"Muster · Easyclean","cat":"muster","pflege":1,"fr":0,"c":[["07","#ddcec0","horizon-07"],["32","#aca199","horizon-32"]]},{"id":"astral","n":"Astral","y":"2025","meta":"Uni · Easyclean · Serie 4","cat":"uni","pflege":1,"fr":0,"c":[["01","#e8e1da","astral-01"],["04","#d6c9bb","astral-04"],["05","#dccbbd","astral-05"],["07","#9a826f","astral-07"],["08","#b2a89e","astral-08"],["09","#c9725d","astral-09"],["10","#890414","astral-10"],["12","#9d4917","astral-12"],["13","#db932b","astral-13"],["15","#333d34","astral-15"],["19","#597384","astral-19"],["20","#97a7a7","astral-20"],["22","#c9bbb0","astral-22"],["23","#ada29e","astral-23"],["25","#4e4944","astral-25"],["26","#221c1a","astral-26"]]},{"id":"enigma","n":"Enigma","y":"2025","meta":"Uni · Easyclean · Serie 5","cat":"uni","pflege":1,"fr":0,"c":[["01","#dbd5d1","enigma-01"],["02","#ccc3bc","enigma-02"],["03","#958682","enigma-03"],["04","#796a63","enigma-04"],["07","#222022","enigma-07"],["08","#454d53","enigma-08"],["09","#1f2b3b","enigma-09"],["11","#1f3836","enigma-11"],["12","#413520","enigma-12"],["13","#706023","enigma-13"],["14","#ad831c","enigma-14"],["15","#ddcfbe","enigma-15"],["17","#cec2b7","enigma-17"],["19","#b69877","enigma-19"],["21","#40281d","enigma-21"],["22","#773c25","enigma-22"],["23","#8a3415","enigma-23"],["24","#c3792c","enigma-24"],["25","#c47e72","enigma-25"],["26","#69231e","enigma-26"],["27","#561a1d","enigma-27"]]},{"id":"sally","n":"Sally","y":"2024","meta":"Jacquard-Streifen · Aquaclean","cat":"muster","pflege":1,"fr":0,"c":[["300","#d3d2cc","sally-300"],["347","#dbded8","sally-347"],["357","#dcd6c6","sally-357"],["407","#c8c8c1","sally-407"],["93","#babbb6","sally-93"]]},{"id":"molly","n":"Molly","y":"2024","meta":"Jacquard-Rauten · Aquaclean","cat":"muster","pflege":1,"fr":0,"c":[["300","#d6d6d1","molly-300"],["347","#d4dad4","molly-347"],["357","#d9d0bb","molly-357"],["407","#c3c4bc","molly-407"],["93","#c0c3c0","molly-93"]]},{"id":"linen-georgia-loom","n":"Linen · Georgia · Loom","y":"2024","meta":"Naturfasern: Leinen, Baumwolle, Viskose · 33'000–45'000 Touren","cat":"uni","pflege":0,"fr":0,"c":[["Linen Natural","#dbd7cb","linen-natural"],["Linen Arena","#979079","linen-arena"],["Linen Perla","#b2b2aa","linen-perla"],["Linen Marengo","#8c8b85","linen-marengo"],["Loom Natural","#e9e6d9","loom-natural"],["Georgia Natural","#eae6d8","georgia-natural"]]},{"id":"albero","n":"Albero","y":"2024","meta":"Digitaldruck Blätter","cat":"muster","pflege":0,"fr":0,"c":[["01","#95aeb1","albero-01"],["02","#b0ada5","albero-02"],["03","#bda487","albero-03"],["04","#b59399","albero-04"]]},{"id":"papyrus","n":"Papyrus","y":"2024","meta":"Ägyptische Motive · Jacquard oder Digitaldruck","cat":"muster","pflege":0,"fr":0,"c":[["Nile (Jacquard)","#957f65","nile-jacquard-version"],["River (Digital)","#957f65","river-digital-version"],["Nefer (Jacquard)","#987866","nefer-jacquard-version"],["Titi (Digital)","#987866","titi-digital-version"],["Cleo (Jacquard)","#a3855d","cleo-jacquard-version"],["Patra (Digital)","#a3855d","patra-digital-version"],["Shay (Jacquard)","#9c7d65","shay-jacquard-version"],["Goose (Digital)","#9c7d65","goose-digital-version"]]},{"id":"salvia","n":"Salvia","y":"2024","meta":"Uni mit leichtem Glanz, sehr robust","cat":"uni","pflege":0,"fr":0,"c":[["04","#ccc5b7","salvia-04"],["05","#d1cfc6","salvia-05"],["08","#a39c8d","salvia-08"],["21","#906d56","salvia-21"],["50","#bdbebb","salvia-50"],["51","#bcbab7","salvia-51"],["45","#838a93","salvia-45"],["30","#8ea080","salvia-30"],["35","#4e5650","salvia-35"],["53","#3b3b3b","salvia-53"]]},{"id":"greca","n":"Greca","y":"2024","meta":"Jacquard, geometrisch","cat":"muster","pflege":0,"fr":0,"c":[["04","#d4d0c5","greca-04"],["30","#a5ac98","greca-30"],["54","#d4d3cf","greca-54"],["45","#9b9ea1","greca-45"]]},{"id":"aneto","n":"Aneto","y":"2024","meta":"Samtig weich","cat":"velours","pflege":0,"fr":0,"c":[["03 Mist","#b7b4b2","aneto-03-mist"],["02 Linen","#a69a91","aneto-02-linen"],["08 Wicker","#897067","aneto-08-wicker"],["04 Mocha","#574847","aneto-04-mocha"],["11 Almond","#815339","aneto-11-almond"],["12 Blush","#a78182","aneto-12-blush"],["09 Silver","#8a8888","aneto-09-silver"],["07 Steel","#7e7c7a","aneto-07-steel"],["05 Moss","#65725e","aneto-05-moss"],["10 Teal","#586f76","aneto-10-teal"],["06 Navy","#3f3e47","aneto-06-navy"],["01 Antracita","#4d4038","aneto-01-antracita"]]},{"id":"nix","n":"Nix","y":"2024 Promo","meta":"92% PES / 8% Nylon · 55'000 Touren · wasserabweisend · schwer entflammbar auf Anfrage (BS 5852)","cat":"uni","pflege":1,"fr":1,"c":[["55","#b6ad9d","nix-55"],["10","#b2ad4f","nix-10"],["28","#3c536b","nix-28"]]},{"id":"diana","n":"Diana","y":"2024 Promo","meta":"Serie 5 · schwer entflammbar auf Anfrage (BS 5852)","cat":"uni","pflege":0,"fr":1,"c":[["02","#b9b1a9","diana-02"],["16","#a1a0a3","diana-16"],["18","#5f5e64","diana-18"]]},{"id":"nassau","n":"Nassau","y":"2023","meta":"Bouclé","cat":"velours","pflege":0,"fr":0,"c":[["03","#e9e4d0","nassau-03"],["05","#b7aaa4","nassau-05"],["14","#b5a395","nassau-14"],["16","#9e8e8d","nassau-16"],["18","#9e8a7f","nassau-18"],["34","#83836d","nassau-34"],["37","#8d7c59","nassau-37"],["38","#917e3c","nassau-38"],["54","#975d47","nassau-54"],["56","#7d553c","nassau-56"],["60","#cda760","nassau-60"],["61","#b19086","nassau-61"],["64","#a98079","nassau-64"],["73","#787d85","nassau-73"],["77","#5d626c","nassau-77"],["79","#54535d","nassau-79"],["83","#cbcbcb","nassau-83"],["92","#727272","nassau-92"],["100","#2b2a30","nassau-100"]]},{"id":"syke","n":"Syke","y":"2023","meta":"Chenille 100% PES · 38'000 Touren · auch schwer entflammbar · Oeko-Tex","cat":"uni","pflege":1,"fr":1,"c":[["05","#c2beaf","syke-05"],["10","#69675c","syke-10"],["12","#64645d","syke-12"],["67","#454541","syke-67"],["90","#595e60","syke-90"],["158","#6b716f","syke-158"]]},{"id":"dresde","n":"Dresde","y":"2023","meta":"Cord","cat":"velours","pflege":0,"fr":0,"c":[["02","#c0baa5","dresde-02"],["03","#ad8127","dresde-03"],["08","#586249","dresde-08"],["09","#ca9b56","dresde-09"],["10","#819995","dresde-10"],["11","#3b5766","dresde-11"],["12","#a8abad","dresde-12"],["13","#444444","dresde-13"],["24","#d9d3c4","dresde-24"],["28","#a67e74","dresde-28"]]},{"id":"arty-edition","n":"Arty Edition","y":"2023","meta":"Kunstdruck nach berühmten Werken","cat":"muster","pflege":0,"fr":0,"c":[["Alisee","#9d665c","alisee"],["Tamarindo","#817460","tamarindo"],["Frida","#aa826a","frida"],["Hand","#615e5d","hand"],["Paradise","#483437","paradise"],["Chaos","#60584d","chaos"],["Labyrinth","#6f6f70","labyrinth"]]},{"id":"paris","n":"Paris","y":"2023","meta":"Chenille · Serie 5 · pflegeleicht","cat":"uni","pflege":1,"fr":0,"c":[["01","#9a8a7a","paris-01"],["02","#d4c5b2","paris-02"],["10","#756859","paris-10"],["14","#381e0b","paris-14"],["34","#56302b","paris-34"],["47","#2a393d","paris-47"],["90","#0d1019","paris-90"],["108","#30231d","paris-108"],["109","#5c5544","paris-109"],["126","#60250d","paris-126"],["132","#91621a","paris-132"],["141","#731d18","paris-141"],["149","#88817a","paris-149"],["168","#535150","paris-168"],["169","#1f1a1b","paris-169"],["193","#3a4034","paris-193"],["196","#c6bfba","paris-196"],["206","#7c7462","paris-206"]]},{"id":"lyon","n":"Lyon","y":"2023","meta":"96% recyceltes Polyester · Serie 5 · pflegeleicht","cat":"uni","pflege":1,"fr":0,"c":[["01","#d1d2cc","lyon-01"],["06","#897142","lyon-06"],["10","#655d52","lyon-10"],["12","#64615d","lyon-12"],["47","#425059","lyon-47"],["65","#7a797a","lyon-65"],["66","#363636","lyon-66"],["84","#958e8a","lyon-84"],["87","#595d60","lyon-87"],["92","#986f69","lyon-92"],["109","#bab5ac","lyon-109"],["158","#778283","lyon-158"],["162","#525850","lyon-162"],["168","#99a199","lyon-168"],["196","#d5d6d1","lyon-196"],["206","#8d877c","lyon-206"]]},{"id":"niza","n":"Niza","y":"2023","meta":"Jacquard-Chenille · Serie 5 · pflegeleicht","cat":"uni","pflege":1,"fr":0,"c":[["06","#ccb889","niza-06"],["12","#908a7e","niza-12"],["66","#6b6a66","niza-66"],["149","#d6d7d2","niza-149"],["153","#808485","niza-153"],["168","#a29b93","niza-168"],["206","#dbddd0","niza-206"],["207","#66614b","niza-207"]]},{"id":"nantes","n":"Nantes","y":"2023","meta":"Chenille 100% PES · Easyclean · Serie 5","cat":"uni","pflege":1,"fr":0,"c":[["02","#e3dccf","nantes-02"],["06","#a69686","nantes-06"],["09","#857d72","nantes-09"],["18","#65584a","nantes-18"],["37","#707477","nantes-37"],["39","#384642","nantes-39"],["48","#806433","nantes-48"],["54","#774935","nantes-54"],["59","#644843","nantes-59"],["63","#86645b","nantes-63"],["70","#a4a8ab","nantes-70"],["71","#68787d","nantes-71"],["72","#3b5359","nantes-72"],["77","#293341","nantes-77"],["85","#9da1a4","nantes-85"],["97","#6c7073","nantes-97"],["99","#4a494e","nantes-99"]]},{"id":"velsatis","n":"Velsatis","y":"2023","meta":"Velours 100% PES · 100'000 Touren","cat":"velours","pflege":0,"fr":0,"c":[["14 (neu)","#3d2e17","velsatis-14-new"],["36 (neu)","#7a2e29","velsatis-36-new"],["43 (neu)","#4b5b68","velsatis-43-new"],["52 (neu)","#a99f49","velsatis-52-new"],["56 (neu)","#223c40","velsatis-56-new"],["59 (neu)","#534f2c","velsatis-59-new"],["70 (neu)","#5f5153","velsatis-70-new"],["106 (neu)","#b1b09e","velsatis-106-new"],["126 (neu)","#4e1f11","velsatis-126-new"],["144 (neu)","#798f7d","velsatis-144-new"],["149 (neu)","#64686b","velsatis-149-new"],["158 (neu)","#364543","velsatis-158-new"],["168 (neu)","#434341","velsatis-168-new"],["198 (neu)","#1e2528","velsatis-198-new"]]}];
+const S={type:"sofa",legF:"alle",ff:"alle",fq:"",open:{},mode:"foto",m:"indy",v:0,w:140,th:null,q:null,leg:0,f:"titan",c:0,pos:[]};
+try{const s=JSON.parse(localStorage.getItem("osb_pos")||"null");if(Array.isArray(s))S.pos=s}catch(e){}
+const $=id=>document.getElementById(id);
+const model=()=>M.find(x=>x.id===S.m), fab=()=>F.find(x=>x.id===S.f);
+function shade(hex,k){const n=parseInt(hex.slice(1),16);let r=n>>16,g=n>>8&255,b=n&255;const f=v=>Math.max(0,Math.min(255,Math.round(k<0?v*(1+k):v+(255-v)*k)));return"#"+[f(r),f(g),f(b)].map(v=>v.toString(16).padStart(2,"0")).join("")}
+function sofaSVG(m,col,small){
+  const ses=m.t==="sessel", W=ses?150:300, x0=(340-W)/2, legH=m.leg==="hoch"?26:m.leg==="tief"?10:3;
+  const base=150-legH, dark=shade(col,-.22), light=shade(col,.12), wood=m.legs[S.leg]&&/Nuss|Wengé|Schwarz|Metall|anthrazit/.test(m.legs[S.leg])?"#4a3a30":"#b48a5f";
+  const legs=m.leg==="verdeckt"?`<rect x="${x0+14}" y="${base}" width="${W-28}" height="${legH}" fill="#2b231f" opacity=".5"/>`:
+    m.leg==="hoch"?[x0+16,x0+W-22].map(x=>`<path d="M${x} ${base} l${x<170?-4:4} ${legH} h6 l${x<170?2:-2} -${legH}z" fill="${wood}"/>`).join(""):
+    [x0+14,x0+W-22].map(x=>`<rect x="${x}" y="${base}" width="8" height="${legH}" fill="#2b231f"/>`).join("");
+  const seats=ses?1:3, sw=(W-56)/seats;
+  let cush="";for(let i=0;i<seats;i++)cush+=`<rect x="${x0+28+i*sw+1}" y="${base-52}" width="${sw-2}" height="20" rx="6" fill="${light}"/><rect x="${x0+28+i*sw+3}" y="${base-100}" width="${sw-6}" height="50" rx="10" fill="${col}"/>`;
+  return `<svg viewBox="0 0 340 ${small?170:190}" role="img" aria-label="${m.n}" preserveAspectRatio="xMidYMid meet">
+   <ellipse cx="170" cy="${150+4}" rx="${W/2+6}" ry="6" fill="#000" opacity=".08"/>
+   ${legs}
+   <rect x="${x0+20}" y="${base-108}" width="${W-40}" height="64" rx="12" fill="${dark}"/>
+   ${cush}
+   <rect x="${x0+20}" y="${base-34}" width="${W-40}" height="34" rx="4" fill="${dark}"/>
+   <rect x="${x0}" y="${base-74}" width="30" height="74" rx="9" fill="${col}"/>
+   <rect x="${x0+W-30}" y="${base-74}" width="30" height="74" rx="9" fill="${col}"/>
+  </svg>`}
+const G3={indy:["indy-3","indy-4","indy-3b","indy-4b","indy-3br","indy-4br"],apolo:"apolo"};
+function glbFor(m){const g=G3[m.id];if(!g)return null;return OSB_BASE+"3d/"+(Array.isArray(g)?g[S.v]:g)+".gltf.json"}
+const photo=m=>OSB_BASE+"img/"+(m.id.startsWith("sheldon")?"sheldon-s":m.id.replace(/-s$/,""))+".webp";
+const IMG={};
+function loadImg(src){if(!IMG[src])IMG[src]=new Promise((ok,no)=>{const i=new Image();i.crossOrigin="anonymous";i.onload=()=>{
+  const c=document.createElement("canvas");c.width=i.naturalWidth;c.height=i.naturalHeight;const x=c.getContext("2d");x.drawImage(i,0,0);
+  const d=x.getImageData(0,0,c.width,c.height),p=d.data,ls=[];
+  for(let k=0;k<p.length;k+=16){const r=p[k],g=p[k+1],b=p[k+2],a=p[k+3];if(a<200)continue;const mx=Math.max(r,g,b),mn=Math.min(r,g,b);if(mx>40&&(mx-mn)/mx<.18)ls.push(.299*r+.587*g+.114*b)}
+  ls.sort((a,b)=>a-b);ok({d,w:c.width,h:c.height,ref:ls[Math.floor(ls.length*.6)]||170})};i.onerror=no;i.src=src});return IMG[src]}
+let drawTok=0;const TILE=150;
+async function drawPreview(m,hex,swid){
+  const tok=++drawTok;let im,tx=null;try{im=await loadImg(photo(m))}catch(e){return}
+  try{tx=await loadImg(OSB_BASE+"sw/"+swid+".webp");if(!tx.avg){const q=tx.d.data;let a=[0,0,0],n=0;for(let i=0;i<q.length;i+=4){a[0]+=q[i];a[1]+=q[i+1];a[2]+=q[i+2];n++}tx.avg=a.map(v=>v/n)}}catch(e){}
+  if(tok!==drawTok)return;
+  const cv=$("pvCanvas");cv.width=im.w;cv.height=im.h;const x=cv.getContext("2d");
+  const o=new ImageData(new Uint8ClampedArray(im.d.data),im.w,im.h),p=o.data;
+  const n=parseInt(hex.slice(1),16),tr=n>>16,tg=n>>8&255,tb=n&255;
+  for(let k=0;k<p.length;k+=4){if(p[k+3]===0)continue;const r=p[k],g=p[k+1],b=p[k+2],mx=Math.max(r,g,b),mn=Math.min(r,g,b);
+    const lum=.299*r+.587*g+.114*b,sat=mx?(mx-mn)/mx:0;
+    let w=sat<.2?1:sat>.38?0:1-(sat-.2)/.18; if(lum<28)w*=lum/28;
+    const f=Math.pow(lum/im.ref,1.05);
+    let cr=tr,cg=tg,cb=tb;
+    if(tx){const px=(k>>2)%im.w,py=((k>>2)/im.w)|0,T=TILE,u0=px%(2*T),v0=py%(2*T),u=u0<T?u0:2*T-1-u0,v=v0<T?v0:2*T-1-v0;
+      const ti=(((v*tx.h/T)|0)*tx.w+((u*tx.w/T)|0))*4,td=tx.d.data,A=tx.avg;cr=A[0]+(td[ti]-A[0])*.6;cg=A[1]+(td[ti+1]-A[1])*.6;cb=A[2]+(td[ti+2]-A[2])*.6}
+    p[k]=r+(Math.min(255,cr*f)-r)*w;p[k+1]=g+(Math.min(255,cg*f)-g)*w;p[k+2]=b+(Math.min(255,cb*f)-b)*w}
+  x.putImageData(o,0,0)}
+function chipGroup(label,arr,cur,key,fmt){
+  if(!arr.length)return"";
+  return `<div><p class="hint" style="margin-bottom:6px">${label}</p><div class="chips">${arr.map((a,i)=>`<button class="chip" data-k="${key}" data-i="${i}" aria-pressed="${cur===i}">${fmt?fmt(a):a}</button>`).join("")}</div></div>`}
+function render(){
+  document.querySelectorAll("[data-type]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.type===S.type));
+  document.querySelectorAll("[data-leg]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.leg===S.legF));
+  document.querySelectorAll("[data-ff]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.ff===S.ff));
+  const list=M.filter(x=>x.t===S.type&&(S.legF==="alle"||x.leg===S.legF));
+  const col=fab().c[S.c][1],swid=fab().c[S.c][2];
+  $("models").innerHTML=list.length?list.map(x=>`<button class="model" data-m="${x.id}" aria-pressed="${x.id===S.m}"><img src="${photo(x)}" alt="" loading="lazy"><b>${x.n}</b><small>${x.d}</small></button>`).join(""):`<p class="empty">Kein Modell mit dieser Kombination.</p>`;
+  const m=model();
+  $("variantBox").innerHTML=chipGroup("Variante / Armlehne",m.v,S.v,"v")+chipGroup("Füsse",m.legs,S.leg,"leg");
+  $("mattBox").innerHTML=m.matt?`<p class="empty">${m.matt}</p>`:
+    (m.vw?`<p class="hint">Breite ${S.w} cm (durch Variante festgelegt)</p>`:chipGroup("Breite",m.w,m.w.indexOf(S.w),"w",a=>a+" cm"))+chipGroup("Dicke",m.th,m.th.indexOf(S.th),"th",a=>a===13?"13 cm schwer entflammbar":a+" cm")+chipGroup("Qualität",m.q,m.q.indexOf(S.q),"q");
+  const q=S.fq.trim().toLowerCase();
+  const fl=F.filter(f=>S.ff==="alle"||(S.ff==="neu"&&f.y==="2026")||(S.ff==="pflege"&&f.pflege)||(S.ff==="fr"&&f.fr)||S.ff===f.cat)
+    .map(f=>({f,idx:f.c.map((c,i)=>i).filter(i=>!q||(f.n+" "+f.c[i][0]).toLowerCase().includes(q)||f.n.toLowerCase().includes(q))})).filter(o=>o.idx.length);
+  $("fcount").textContent=fl.length+" Kollektionen · "+fl.reduce((a,o)=>a+o.idx.length,0)+" Farben";
+  const tagsOf=f=>[f.y==="2026"?"Neu 2026":"Kollektion "+f.y,{uni:"Uni",muster:"Muster",velours:"Velours/Bouclé/Cord"}[f.cat]].concat(f.pflege?["Pflegeleicht"]:[]).concat(f.fr?["Schwer entflammbar"]:[]);
+  $("fabrics").innerHTML=fl.length?fl.map(({f,idx})=>{const lim=S.open[f.id]||q?idx.length:12,show=idx.slice(0,lim);
+    return `<div class="fab" data-on="${f.id===S.f}"><div class="fabhead"><b>${f.n}</b><div class="tags">${tagsOf(f).map(t=>`<span class="tag">${t}</span>`).join("")}</div></div><div class="fabmeta">${f.meta}</div><div class="sw">${show.map(i=>{const c=f.c[i];return `<button class="swatch" title="${f.n} ${c[0]}" aria-label="${f.n} ${c[0]}" data-f="${f.id}" data-c="${i}" style="background:${c[1]} url(${OSB_BASE}sw/${c[2]}.webp) center/cover" aria-pressed="${f.id===S.f&&i===S.c}"></button>`}).join("")}${idx.length>lim?`<button class="chip more" data-more="${f.id}">+${idx.length-lim} weitere</button>`:""}</div></div>`}).join(""):`<p class="empty">Kein Stoff gefunden. Suchbegriff ändern oder Filter auf «Alle» setzen.</p>`;
+  $("pvName").textContent=m.n+(m.t==="sessel"?" Schlafsessel":"");
+  $("pvSub").textContent=m.d;
+  drawPreview(m,col,swid);
+  const g3=glbFor(m);$("modes").hidden=!g3;if(!g3)S.mode="foto";
+  $("pvSvg").dataset.mode=S.mode;document.querySelectorAll("[data-mode]").forEach(b=>b.tagName==="BUTTON"&&b.setAttribute("aria-pressed",b.dataset.mode===S.mode));
+  if(g3&&S.mode==="3d"&&window.osb3d)window.osb3d.show(g3,swid,m.id.startsWith("indy")?"#1c1b1a":"#3a2a20");
+  $("pvNote").textContent=(m.t==="sessel"&&!m.id.startsWith("sheldon")?"Abbildung zeigt die Sofa-Version. ":"")+"Farbvorschau aus FAMA-Rendering, echte Stoffmuster auf Anfrage.";
+  const tw=totalW(m),D=m.dim||{};
+  const spec=[["Variante",m.v[S.v]],["Masse",[tw?"B "+String(tw).replace(".",",")+" cm":"",D.t?"T "+D.t+" cm":"",D.h?"H "+D.h+" cm":""].filter(Boolean).join(" × ")+(D.sh?" · Sitzhöhe "+D.sh+" cm":"")],["Geöffnet",D.open?"Tiefe "+D.open+" cm":"–"],["Füsse",m.legs[S.leg]],["Matratze",mattText(m)],["Stoff",fab().n+" "+fab().c[S.c][0]],["Fuss-Typ",{verdeckt:"verdeckt",tief:"tief",hoch:"hoch, Saugroboter-tauglich"}[m.leg]]];
+  if(m.note)spec.push(["Hinweis",m.note]);
+  $("pvSpec").innerHTML=spec.map(([a,b])=>`<dt>${a}</dt><dd>${b}</dd>`).join("");
+  $("positions").innerHTML=S.pos.length?S.pos.map((p,i)=>`<div class="pos"><i style="background:${p.col}"></i><div><b>${p.qty} ×</b> ${p.txt}</div><button data-del="${i}">Entfernen</button></div>`).join(""):`<p class="empty">Noch keine Position. Modell, Stoff und Stückzahl wählen, dann «Zum Projekt hinzufügen».</p>`;
+}
+function mattText(m){if(m.matt)return m.matt;return `${S.w} × 195 cm, ${S.th===13?"13 cm schwer entflammbar":S.th+" cm"}, ${S.q}`}
+function pickModel(id){S.m=id;const m=model();S.v=0;S.leg=0;S.w=m.vw?m.vw[0]:m.w.includes(140)?140:m.w[0]||null;S.th=m.th.includes(14)?14:m.th[0]||null;S.q=m.q[0]||null;render()}
+document.addEventListener("click",e=>{
+  const b=e.target.closest("button");if(!b)return;
+  if(b.dataset.type){S.type=b.dataset.type;S.legF="alle";const f=M.find(x=>x.t===S.type);pickModel(f.id);return}
+  if(b.dataset.leg){S.legF=b.dataset.leg;const l=M.filter(x=>x.t===S.type&&(S.legF==="alle"||x.leg===S.legF));if(l.length&&!l.find(x=>x.id===S.m))pickModel(l[0].id);else render();return}
+  if(b.dataset.ff){S.ff=b.dataset.ff;render();return}
+  if(b.dataset.m){pickModel(b.dataset.m);return}
+  if(b.dataset.k){const m=model(),i=+b.dataset.i;({v:()=>{S.v=i;if(m.vw)S.w=m.vw[i]},leg:()=>S.leg=i,w:()=>S.w=m.w[i],th:()=>S.th=m.th[i],q:()=>S.q=m.q[i]})[b.dataset.k]();render();return}
+  if(b.dataset.mode&&b.tagName==="BUTTON"){S.mode=b.dataset.mode;render();return}
+  if(b.dataset.more){S.open[b.dataset.more]=1;render();return}
+  if(b.dataset.f){S.f=b.dataset.f;S.c=+b.dataset.c;render();return}
+  if(b.dataset.del!==undefined){S.pos.splice(+b.dataset.del,1);save();render();return}
+});
+function save(){try{localStorage.setItem("osb_pos",JSON.stringify(S.pos))}catch(e){}}
+$("fq").addEventListener("input",e=>{S.fq=e.target.value;render()});
+$("addPos").onclick=()=>{
+  const m=model(),q=Math.max(1,parseInt($("qty").value)||1);
+  const tw=totalW(m);
+  const txt=`${m.n}${m.t==="sessel"?" Schlafsessel":""} · ${m.v[S.v]}${tw&&m.arms?" · Gesamtbreite "+tw+" cm":""} · Füsse ${m.legs[S.leg]} · Matratze ${mattText(m)} · Stoff ${fab().n} ${fab().c[S.c][0]} · ${$("room").value}`;
+  S.pos.push({qty:q,txt,col:fab().c[S.c][1]});save();render();
+  $("addToast").textContent="Hinzugefügt: Position "+S.pos.length;setTimeout(()=>$("addToast").textContent="",2500);
+};
+$("req").addEventListener("submit",e=>{
+  const pos=S.pos.length?S.pos:[{qty:Math.max(1,parseInt($("qty").value)||1),txt:"(aktuelle Auswahl) "+model().n+" · "+fab().n+" "+fab().c[S.c][0]}];
+  const total=pos.reduce((a,p)=>a+p.qty,0);
+  const t=`PROJEKTANFRAGE onlysofabeds
+Firma: ${$("co").value}
+Ansprechperson: ${$("cp").value}
+E-Mail: ${$("em").value} · Tel.: ${$("ph").value}
+Projekt: ${$("pj").value}
+Liefertermin: ${$("dt").value}
+Brandschutz: ${$("fr").value}
+
+POSITIONEN (${total} Stück total)
+${pos.map((p,i)=>`${i+1}. ${p.qty} × ${p.txt}`).join("\n")}
+
+Bemerkungen: ${$("nt").value}`;
+  $("reqBody").value=t;try{sessionStorage.setItem("osb_sent","1")}catch(_){}
+});
+if(document.getElementById("reqOk")){S.pos=[];save();try{localStorage.removeItem("osb_pos")}catch(_){};document.getElementById("reqOk").scrollIntoView({block:"center"})}
+
+$("copy").onclick=()=>{const t=$("out").textContent;
+  const done=()=>{$("copyToast").textContent="Kopiert";setTimeout(()=>$("copyToast").textContent="",2000)};
+  try{navigator.clipboard.writeText(t).then(done,()=>{sel();})}catch(e){sel()}
+  function sel(){const r=document.createRange();r.selectNodeContents($("out"));const s=getSelection();s.removeAllRanges();s.addRange(r);$("copyToast").textContent="Text markiert, mit Cmd+C kopieren"}};
+pickModel("indy");
+window.addEventListener("osb3d-ready",()=>render());
+</script>
+<script type="module">
+import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/+esm";
+import {GLTFLoader} from "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/loaders/GLTFLoader.js/+esm";
+import {OrbitControls} from "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js/+esm";
+const host=document.getElementById("pv3d");
+let renderer,scene,camera,controls,current=null,curUrl=null,lastSw=null,fabricMat,hardMat;const cache={};
+function init(){
+  renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});renderer.setPixelRatio(Math.min(2,devicePixelRatio));
+  renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.05;
+  renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;host.appendChild(renderer.domElement);
+  scene=new THREE.Scene();camera=new THREE.PerspectiveCamera(32,1,0.05,50);camera.position.set(-2.3,1.5,3.4);
+  scene.add(new THREE.HemisphereLight(0xfff6ea,0x6b5a50,1.6));
+  const d=new THREE.DirectionalLight(0xffffff,1.9);d.position.set(-2,4,3);d.castShadow=true;d.shadow.mapSize.set(1024,1024);
+  Object.assign(d.shadow.camera,{left:-2,right:2,top:2,bottom:-2});d.shadow.radius=6;scene.add(d);
+  const f=new THREE.DirectionalLight(0xffeedd,.6);f.position.set(3,2,-2);scene.add(f);
+  const ground=new THREE.Mesh(new THREE.PlaneGeometry(10,10),new THREE.ShadowMaterial({opacity:.22}));ground.rotation.x=-Math.PI/2;ground.receiveShadow=true;scene.add(ground);
+  controls=new OrbitControls(camera,renderer.domElement);controls.target.set(0,.42,0);controls.enableDamping=true;controls.minDistance=1.6;controls.maxDistance=6;
+  controls.maxPolarAngle=Math.PI/2-.05;controls.enablePan=false;
+  fabricMat=new THREE.MeshStandardMaterial({roughness:.92,metalness:0,color:0xffffff});
+  hardMat=new THREE.MeshStandardMaterial({roughness:.5,metalness:.1,color:0x222222});
+  new ResizeObserver(size).observe(host);size();
+  renderer.setAnimationLoop(()=>{controls.update();renderer.render(scene,camera)});
+}
+function size(){const w=host.clientWidth||300,h=host.clientHeight||200;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix()}
+function fabricTexture(swid){return new Promise(ok=>{const i=new Image();i.onload=()=>{const c=document.createElement("canvas");c.width=i.naturalWidth;c.height=i.naturalHeight;
+  const x=c.getContext("2d");x.drawImage(i,0,0);const d=x.getImageData(0,0,c.width,c.height),p=d.data;let a=[0,0,0],n=p.length/4;
+  for(let k=0;k<p.length;k+=4){a[0]+=p[k];a[1]+=p[k+1];a[2]+=p[k+2]}a=a.map(v=>v/n);
+  for(let k=0;k<p.length;k+=4)for(let j=0;j<3;j++)p[k+j]=a[j]+(p[k+j]-a[j])*.65;x.putImageData(d,0,0);
+  const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;t.wrapS=t.wrapT=THREE.MirroredRepeatWrapping;t.repeat.set(1/.32,1/.32);t.anisotropy=8;ok(t)};
+  i.onerror=()=>ok(null);i.crossOrigin="anonymous";i.src=window.OSB_BASE+"sw/"+swid+".webp"})}
+async function show(url,swid,hard){
+  if(!renderer)init();
+  hardMat.color.set(hard);
+  if(url===curUrl&&swid===lastSw)return;
+  if(swid!==lastSw){lastSw=swid;const tex=await fabricTexture(swid);if(fabricMat.map)fabricMat.map.dispose();fabricMat.map=tex;fabricMat.needsUpdate=true;}
+  if(url===curUrl)return;curUrl=url;const ld=document.getElementById("load3d");ld.hidden=false;
+  try{
+    if(!cache[url])cache[url]=fetch(url).then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}).then(js=>{
+      const b64=js.buffers[0].uri.split(",")[1],bin=Uint8Array.from(atob(b64),c=>c.charCodeAt(0));delete js.buffers[0].uri;
+      let jt=new TextEncoder().encode(JSON.stringify(js));const pad=(4-jt.length%4)%4;if(pad){const t=new Uint8Array(jt.length+pad);t.set(jt);t.fill(32,jt.length);jt=t}
+      const total=12+8+jt.length+8+bin.length,ab=new ArrayBuffer(total),dv=new DataView(ab),u8=new Uint8Array(ab);
+      dv.setUint32(0,0x46546C67,true);dv.setUint32(4,2,true);dv.setUint32(8,total,true);dv.setUint32(12,jt.length,true);dv.setUint32(16,0x4E4F534A,true);u8.set(jt,20);
+      dv.setUint32(20+jt.length,bin.length,true);dv.setUint32(24+jt.length,0x004E4942,true);u8.set(bin,28+jt.length);
+      return new GLTFLoader().parseAsync(ab,"")});
+    const g=await cache[url];if(curUrl!==url)return;
+    if(current)scene.remove(current);current=g.scene.clone();
+    current.traverse(o=>{if(o.isMesh){o.material=o.name==="hard"||o.material.name==="hard"?hardMat:fabricMat;o.castShadow=true;o.receiveShadow=true}});
+    scene.add(current);
+  }catch(e){ld.textContent="3D-Modell konnte nicht geladen werden.";return}
+  ld.hidden=true;
+}
+window.osb3d={show};
+window.dispatchEvent(new Event("osb3d-ready"));
+</script>{% endraw %}
+{% schema %}
+{
+  "name": "OSB Konfigurator",
+  "tag": "section",
+  "class": "osb-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "asset_base",
+      "label": "Adresse der Bilder und 3D-Modelle",
+      "default": "https://cdn.jsdelivr.net/gh/Kroko007/onlysofabeds-assets@main/"
+    }
+  ],
+  "presets": [
+    {
+      "name": "OSB Konfigurator"
+    }
+  ]
+}
+{% endschema %}
