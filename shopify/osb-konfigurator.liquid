@@ -210,9 +210,12 @@ function sofaSVG(m,col,small){
    <rect x="${x0+W-30}" y="${base-74}" width="30" height="74" rx="9" fill="${col}"/>
   </svg>`}
 const OSB_BASE_3D=()=>(typeof OSB_BASE!=="undefined"?OSB_BASE:"")+"3d/";
-const G3={indy:["indy-3","indy-4","indy-3b","indy-4b","indy-3br","indy-4br"],apolo:"apolo",opera:"opera-4dr"};
-const G3OPEN={opera:"opera-4dr-offen"};
-function glbFor(m){const g=G3[m.id];if(!g)return null;if(S.bed&&G3OPEN[m.id])return OSB_BASE_3D()+G3OPEN[m.id]+".gltf.json";return OSB_BASE+"3d/"+(Array.isArray(g)?g[S.v]:g)+".gltf.json"}
+const G3={indy:["indy-3","indy-4","indy-3b","indy-4b","indy-3br","indy-4br"],apolo:"apolo",opera:"opera-4dr",
+  bolero:m=>m.arms&&m.arms[S.v]&&m.arms[S.v][0]==="V"?"bolero-3v":"bolero-3r",bopy:["bopy-3","bopy-4"],rudy:["rudy-3","rudy-4"],
+  zeus:()=>S.w===160?"zeus-4":"zeus-3",ravel:"ravel-3",gala:"gala",helsinki:"helsinki-zu","bopy-s":"bopy-s","dali-s":"dali-s-zu"};
+const G3OPEN={opera:"opera-4dr-offen",helsinki:"helsinki-offen","dali-s":"dali-s-offen"};
+function hardColor(m){const l=(m.legs[S.leg]||"").toLowerCase();if(/natur/.test(l))return "#b8895a";if(/nuss/.test(l))return "#5a3d2b";if(/wengé|wenge/.test(l))return "#3a2a20";if(/messing|gold/.test(l))return "#b08d4a";if(/bolero/.test(l))return "#7a5a3c";return "#1c1b1a"}
+function glbFor(m){const g=G3[m.id];if(!g)return null;if(S.bed&&G3OPEN[m.id])return OSB_BASE_3D()+G3OPEN[m.id]+".gltf.json";if(typeof g==="function")return OSB_BASE_3D()+g(m)+".gltf.json";return OSB_BASE+"3d/"+(Array.isArray(g)?g[S.v]:g)+".gltf.json"}
 const photo=m=>OSB_BASE+"img/"+(m.id.startsWith("sheldon")?"sheldon-s":m.id.replace(/-s$/,""))+".webp";
 const IMG={};
 function loadImg(src){if(!IMG[src])IMG[src]=new Promise((ok,no)=>{const i=new Image();i.crossOrigin="anonymous";i.onload=()=>{
@@ -265,7 +268,7 @@ function render(){
   $("bedmodes").hidden=!(g3&&S.mode==="3d"&&G3OPEN[m.id]);$("photoBtn").hidden=!(g3&&S.mode==="3d");$("roomOpen").hidden=!g3;if(S.mode!=="3d")S.photo=false;$("photoBtn").setAttribute("aria-pressed",String(!!S.photo));
   if(window.osb3d&&window.osb3d.setPhoto&&g3)window.osb3d.setPhoto(!!S.photo&&S.mode==="3d");document.querySelectorAll("[data-bed]").forEach(b=>b.setAttribute("aria-pressed",String(+b.dataset.bed===(S.bed?1:0))));
   $("pvSvg").dataset.mode=S.mode;document.querySelectorAll("[data-mode]").forEach(b=>b.tagName==="BUTTON"&&b.setAttribute("aria-pressed",b.dataset.mode===S.mode));
-  if(g3&&S.mode==="3d"&&window.osb3d)window.osb3d.show(g3,swid,m.id.startsWith("indy")?"#1c1b1a":"#3a2a20");
+  if(g3&&S.mode==="3d"&&window.osb3d)window.osb3d.show(g3,swid,hardColor(m));
   $("pvNote").textContent=(m.t==="sessel"&&!m.id.startsWith("sheldon")?"Abbildung zeigt die Sofa-Version. ":"")+"Darstellung unverbindlich: Farben und Struktur können je nach Bildschirm, Licht und Produktionscharge vom Original abweichen. Massgebend ist das Stoffmuster.";
   const tw=totalW(m),D=m.dim||{};
   const spec=[["Variante",m.v[S.v]],["Masse",[tw?"B "+String(tw).replace(".",",")+" cm":"",D.t?"T "+D.t+" cm":"",D.h?"H "+D.h+" cm":""].filter(Boolean).join(" × ")+(D.sh?" · Sitzhöhe "+D.sh+" cm":"")],["Geöffnet",D.open?"Tiefe "+D.open+" cm":"–"],["Füsse",m.legs[S.leg]],["Matratze",mattText(m)],["Stoff",fab().n+" "+fab().c[S.c][0]],["Fuss-Typ",{verdeckt:"verdeckt",tief:"tief",hoch:"hoch, Saugroboter-tauglich"}[m.leg]]];
@@ -291,7 +294,7 @@ document.addEventListener("click",e=>{
 });
 function save(){try{localStorage.setItem("osb_pos",JSON.stringify(S.pos))}catch(e){}}
 function roomGo(){const m=model(),g=glbFor(m);if(!g||!window.osb3d)return;
-  window.osb3d.roomOpen(g,fab().c[S.c][2],m.id.startsWith("indy")?"#1c1b1a":"#3a2a20")}
+  window.osb3d.roomOpen(g,fab().c[S.c][2],hardColor(m))}
 $("roomOpen").onclick=()=>{const m=model();$("roomTitle").textContent=m.n+" in Ihrem Raum · "+fab().n+" "+fab().c[S.c][0];$("roomDlg").hidden=false;document.body.style.overflow="hidden";if($("roomImg").src)roomGo()};
 $("roomClose").onclick=()=>{$("roomDlg").hidden=true;document.body.style.overflow=""};
 $("roomPick").onclick=()=>$("roomFile").click();$("roomNew").onclick=()=>$("roomFile").click();
