@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "osb_home": {
+      "type": "osb-home",
+      "settings": {}
+    }
+  },
+  "order": [
+    "osb_home"
+  ]
+}

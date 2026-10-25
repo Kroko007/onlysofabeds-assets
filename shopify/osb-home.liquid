@@ -1,0 +1,175 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&display=swap">
+{%- assign base = section.settings.asset_base -%}
+{%- assign cfg = section.settings.configurator_url | default: '/pages/konfigurator' -%}
+<style>
+.osbh{--ivory:#f6f1e9;--paper:#fffdf9;--espresso:#2e211b;--cocoa:#6b5a50;--line:#e3d9cc;--bordeaux:#7a2635;--stage:#ebe2d5;
+  --display:"Bodoni Moda","Didot",Georgia,serif;--body:"Jost","Avenir Next","Helvetica Neue",Arial,sans-serif;
+  background:var(--ivory);color:var(--espresso);font-family:var(--body);font-weight:300;font-size:16px;line-height:1.6}
+.osbh *{box-sizing:border-box}
+.osbh .in{max-width:1240px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.osbh .eyebrow{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--bordeaux);font-weight:400}
+.osbh h1,.osbh h2,.osbh h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;color:inherit}
+.osbh p{margin:0}
+.osbh .btn{display:inline-block;font-family:var(--body);font-size:13px;font-weight:400;letter-spacing:.16em;text-transform:uppercase;padding:15px 26px;border-radius:2px;text-decoration:none;border:1px solid currentColor;transition:background .2s,color .2s}
+.osbh .btn.solid{background:var(--bordeaux);border-color:var(--bordeaux);color:#fff}
+.osbh .btn.solid:hover{background:#651d2b}
+.osbh .btn.ghost{color:var(--ivory)}
+.osbh .btn.ghost:hover{background:var(--ivory);color:var(--espresso)}
+.osbh .btn.dark{color:var(--espresso)}
+.osbh .btn.dark:hover{background:var(--espresso);color:var(--ivory)}
+/* hero */
+.osbh .hero{background:var(--espresso);color:var(--ivory);overflow:hidden}
+.osbh .hero .in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:40px;align-items:center;padding-block:72px 64px}
+.osbh .hero h1{font-size:clamp(40px,6vw,76px);line-height:1.02;letter-spacing:-.01em}
+.osbh .hero h1 em{color:#d9a6ae;font-style:italic}
+.osbh .hero .lead{margin-top:22px;max-width:46ch;color:#d8ccbf;font-size:17px}
+.osbh .hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.osbh .hero .claim{margin-top:28px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#a89786}
+.osbh .hero figure{margin:0;position:relative}
+.osbh .hero figure::before{content:"";position:absolute;inset:8% -6% 2% 6%;background:radial-gradient(closest-side,rgba(217,166,174,.18),transparent);}
+.osbh .hero figure img{position:relative;width:100%;height:auto;display:block;filter:drop-shadow(0 30px 40px rgba(0,0,0,.45))}
+.osbh .hero .cap{position:relative;margin-top:10px;font-size:12px;color:#a89786;text-align:right}
+@media (max-width:860px){.osbh .hero .in{grid-template-columns:1fr;padding-block:48px 40px}.osbh .hero figure{order:-1}}
+/* usp */
+.osbh .usp{padding-block:72px;border-bottom:1px solid var(--line)}
+.osbh .usp .head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:36px}
+.osbh .usp h2{font-size:clamp(30px,3.6vw,44px);line-height:1.1;max-width:20ch}
+.osbh .usp .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.osbh .usp .card{border-top:1px solid var(--espresso);padding-top:18px}
+.osbh .usp .card h3{font-size:23px;margin-bottom:8px}
+.osbh .usp .card p{color:var(--cocoa);font-size:15px}
+@media (max-width:760px){.osbh .usp .grid{grid-template-columns:1fr}}
+/* collection */
+.osbh .coll{padding-block:72px}
+.osbh .coll .head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+.osbh .coll h2{font-size:clamp(30px,3.6vw,44px);line-height:1.1}
+.osbh .coll .row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.osbh .coll a.item{display:flex;flex-direction:column;gap:6px;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:16px 16px 18px;text-decoration:none;color:var(--espresso);transition:border-color .2s,transform .2s}
+.osbh .coll a.item:hover{border-color:var(--bordeaux);transform:translateY(-2px)}
+.osbh .coll a.item img{width:100%;height:150px;object-fit:contain}
+.osbh .coll a.item b{font-family:var(--display);font-weight:500;font-size:21px}
+.osbh .coll a.item small{color:var(--cocoa);font-size:13px;line-height:1.4}
+@media (max-width:900px){.osbh .coll .row{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* steps */
+.osbh .steps{background:var(--stage);padding-block:72px}
+.osbh .steps h2{font-size:clamp(30px,3.6vw,44px);line-height:1.1;margin-bottom:32px}
+.osbh .steps ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;counter-reset:s}
+.osbh .steps li{counter-increment:s}
+.osbh .steps li::before{content:counter(s,decimal-leading-zero);display:block;font-family:var(--display);font-size:40px;color:var(--bordeaux);line-height:1;margin-bottom:12px}
+.osbh .steps li b{display:block;font-weight:500;font-size:17px;margin-bottom:4px}
+.osbh .steps li span{color:var(--cocoa);font-size:15px}
+@media (max-width:860px){.osbh .steps ol{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.osbh .steps ol{grid-template-columns:1fr}}
+/* fabrics */
+.osbh .fab{padding-block:72px;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:40px;align-items:center}
+.osbh .fab h2{font-size:clamp(30px,3.6vw,44px);line-height:1.1;margin:10px 0 14px}
+.osbh .fab p{color:var(--cocoa);max-width:48ch}
+.osbh .fab .sw{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px}
+.osbh .fab .sw span{aspect-ratio:1;border-radius:50%;background-size:cover;background-position:center;border:1px solid var(--line)}
+.osbh .fab .btn{margin-top:24px}
+@media (max-width:860px){.osbh .fab{grid-template-columns:1fr}.osbh .fab .sw{grid-template-columns:repeat(6,minmax(0,1fr))}}
+/* cta */
+.osbh .cta{background:var(--bordeaux);color:#fff}
+.osbh .cta .in{padding-block:64px;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
+.osbh .cta h2{font-size:clamp(28px,3.4vw,42px);line-height:1.12;max-width:22ch}
+.osbh .cta p{margin-top:10px;color:#f1d9dc}
+.osbh .cta .btn{color:#fff}
+.osbh .cta .btn:hover{background:#fff;color:var(--bordeaux)}
+.osbh :focus-visible{outline:2px solid var(--bordeaux);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){.osbh *{transition:none!important}}
+</style>
+
+<div class="osbh">
+  <section class="hero">
+    <div class="in">
+      <div>
+        <p class="eyebrow" style="color:#d9a6ae">Schlafsofas für Hotellerie &amp; Care</p>
+        <h1 style="margin-top:14px">Tagsüber Sofa.<br><em>Nachts ein echtes Bett.</em></h1>
+        <p class="lead">Kuratierte Schlafsofas und Schlafsessel aus spanischer Manufaktur, konfiguriert für Ihr Projekt. In über 400 Stoffen, mit Matratzen bis 18 cm und auf Wunsch schwer entflammbar.</p>
+        <div class="ctas">
+          <a class="btn solid" href="{{ cfg }}">Konfigurator starten</a>
+          <a class="btn ghost" href="{{ cfg }}#anfrage">Projekt anfragen</a>
+        </div>
+        <p class="claim">Sleep · Design · Hospitality</p>
+      </div>
+      <figure>
+        <img src="{{ base }}img/dali.webp" alt="Schlafsofa Dalí mit Holzfüssen" width="900" height="560" fetchpriority="high">
+        <figcaption class="cap">Dalí · Bettfunktion unsichtbar, Liegefläche bis 160 × 195 cm</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="usp in">
+    <div class="head">
+      <h2>Ein Spezialist. Eine Kategorie.</h2>
+      <p class="eyebrow">Nur Schlafsofas</p>
+    </div>
+    <div class="grid">
+      <div class="card"><h3>Hotels &amp; Apartments</h3><p>Zusatzbetten, die wie Designsofas aussehen. Mehr Belegung pro Zimmer, ohne Kompromiss beim Interior.</p></div>
+      <div class="card"><h3>Pflege &amp; Kliniken</h3><p>Schlafplätze für Angehörige und Nachtwachen. Pflegeleichte Stoffe, robuste Mechanik, Objektqualität.</p></div>
+      <div class="card"><h3>Architekten &amp; Planer</h3><p>Masse, 3D-Daten und Stoffmuster für Ihre Planung. Persönliche Projektberatung und Bemusterung.</p></div>
+    </div>
+  </section>
+
+  <section class="coll in">
+    <div class="head">
+      <div><p class="eyebrow">Die Kollektion</p><h2 style="margin-top:10px">14 Schlafsofas, 7 Schlafsessel</h2></div>
+      <a class="btn dark" href="{{ cfg }}">Alle Modelle konfigurieren</a>
+    </div>
+    <div class="row">
+      <a class="item" href="{{ cfg }}"><img src="{{ base }}img/indy.webp" alt="" loading="lazy"><b>Indy</b><small>Motorisch, per Knopfdruck vom Sofa zum Bett</small></a>
+      <a class="item" href="{{ cfg }}"><img src="{{ base }}img/opera.webp" alt="" loading="lazy"><b>Opera</b><small>Hoher Fuss, Liegefläche bis 160 × 195 cm</small></a>
+      <a class="item" href="{{ cfg }}"><img src="{{ base }}img/zeus.webp" alt="" loading="lazy"><b>Zeus</b><small>Sockel in Messing oder Holz, ideal fürs Objekt</small></a>
+      <a class="item" href="{{ cfg }}"><img src="{{ base }}img/helsinki.webp" alt="" loading="lazy"><b>Helsinki</b><small>Leicht und elegant, schräge Holzfüsse</small></a>
+    </div>
+  </section>
+
+  <section class="steps">
+    <div class="in">
+      <p class="eyebrow">So läuft Ihr Projekt</p>
+      <h2 style="margin-top:10px">Vom ersten Entwurf bis ins Zimmer</h2>
+      <ol>
+        <li><b>Konfigurieren</b><span>Modell, Grösse, Matratze und Stoff online wählen, in 3D ansehen.</span></li>
+        <li><b>Anfragen</b><span>Alle Positionen als Projekt senden. Unverbindlich und kostenlos.</span></li>
+        <li><b>Bemustern</b><span>Musterbox mit Ihren Stoffen oder Besuch im Showroom.</span></li>
+        <li><b>Liefern</b><span>Gefertigt in Spanien, geliefert für Ihren Termin.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="in fab">
+    <div>
+      <p class="eyebrow">Stoffbibliothek</p>
+      <h2>Über 400 Stoffe. Uni, Velours, Bouclé, Kunstdruck.</h2>
+      <p>Pflegeleichte Aquaclean- und Easyclean-Qualitäten für den täglichen Einsatz, schwer entflammbare Ausführungen für Objektanforderungen und ausdrucksstarke Designstoffe für besondere Räume.</p>
+      <a class="btn dark" href="{{ cfg }}">Stoffe ansehen</a>
+    </div>
+    <div class="sw" aria-hidden="true">
+      {%- assign sws = 'titan-15,titan-53,titan-271,titan-92,axis-21,axis-31,axis-09,axis-37,nassau-03,nassau-54,velsatis-59-new,velsatis-14-new,ritmo-64-burdeos,ritmo-32-verde,armonia-08-vison,picar-45,glow-002,glow-528,enigma-24,enigma-13,dresde-12,syke-90,linen-natural,gaudi-05-verde' | split: ',' -%}
+      {%- for s in sws -%}<span style="background-image:url({{ base }}sw/{{ s }}.webp)"></span>{%- endfor -%}
+    </div>
+  </section>
+
+  <section class="cta" id="kontakt">
+    <div class="in">
+      <div>
+        <h2>Sie planen Zimmer, Apartments oder eine Station?</h2>
+        <p>Wir beraten Sie persönlich und stellen Ihnen eine Musterbox zusammen.</p>
+      </div>
+      <a class="btn" href="{{ cfg }}">Projekt starten</a>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "OSB Startseite",
+  "tag": "section",
+  "settings": [
+    {"type": "text", "id": "asset_base", "label": "Adresse der Bilder", "default": "https://cdn.jsdelivr.net/gh/Kroko007/onlysofabeds-assets@main/"},
+    {"type": "text", "id": "configurator_url", "label": "Link zum Konfigurator", "default": "/pages/konfigurator"}
+  ],
+  "presets": [{"name": "OSB Startseite"}]
+}
+{% endschema %}

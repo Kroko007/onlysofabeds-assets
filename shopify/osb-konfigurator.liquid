@@ -89,7 +89,7 @@
         <div class="positions" id="positions"></div>
       </section>
 
-      <section class="step">
+      <section class="step" id="anfrage" style="scroll-margin-top:110px">
         <h2><span>Anfrage</span>Ihre Angaben</h2>
         {%- form 'contact', id: 'req', class: 'form' -%}
           {%- if form.posted_successfully? -%}<p class="ok full" id="reqOk">Danke! Ihre Projektanfrage ist bei uns eingegangen. Wir melden uns innerhalb von 1–2 Arbeitstagen.</p>{%- endif -%}
