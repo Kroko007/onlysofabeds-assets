@@ -220,7 +220,7 @@ function loadImg(src){if(!IMG[src])IMG[src]=new Promise((ok,no)=>{const i=new Im
   for(let k=0;k<p.length;k+=16){const r=p[k],g=p[k+1],b=p[k+2],a=p[k+3];if(a<200)continue;const mx=Math.max(r,g,b),mn=Math.min(r,g,b);if(mx>40&&(mx-mn)/mx<.18)ls.push(.299*r+.587*g+.114*b)}
   ls.sort((a,b)=>a-b);ok({d,w:c.width,h:c.height,ref:ls[Math.floor(ls.length*.6)]||170})};i.onerror=no;i.src=src});return IMG[src]}
 let drawTok=0;const TILE=150;
-const RB=(typeof OSB_BASE!=="undefined"?OSB_BASE:"");const REAL={indy:{img:RB+"img/real/indy-fama-raum.webp",mask:RB+"img/real/indy-fama-maske.png",note:"Indy nach FAMA-3D-Daten, eingesetzt in ein Raumfoto. "}};
+const RB=(typeof OSB_BASE!=="undefined"?OSB_BASE:"");const REAL={indy:{img:RB+"img/real/indy3-raum.webp",mask:RB+"img/real/indy3-maske.png",note:"Indy ohne Armlehnen, nach FAMA-3D-Daten in ein Raumfoto gesetzt. "}};
 const LIN=new Float32Array(256);for(let i=0;i<256;i++){const c=i/255;LIN[i]=c<=.04045?c/12.92:Math.pow((c+.055)/1.055,2.4)}
 const toS=v=>{v=v<=0?0:v>=1?1:v;return 255*(v<=.0031308?v*12.92:1.055*Math.pow(v,1/2.4)-.055)};
 async function drawReal(m,swid,tok){
