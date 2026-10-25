@@ -295,7 +295,7 @@ function render(){
   document.querySelectorAll("[data-ff]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.ff===S.ff));
   const list=M.filter(x=>x.t===S.type&&(S.legF==="alle"||x.leg===S.legF));
   const col=fab().c[S.c][1],swid=fab().c[S.c][2];
-  $("models").innerHTML=list.length?list.map(x=>`<button class="model" data-m="${x.id}" aria-pressed="${x.id===S.m}"><img src="${photo(x)}" alt="" loading="lazy"><b>${x.n}</b><small>${x.d}</small></button>`).join(""):`<p class="empty">Kein Modell mit dieser Kombination.</p>`;
+  $("models").innerHTML=list.length?list.map(x=>`<button class="model" data-m="${x.id}" aria-pressed="${x.id===S.m}"><img src="${REAL[x.id]?REAL[x.id].img:photo(x)}" alt="" loading="lazy"${REAL[x.id]?' style="object-fit:cover"':""}><b>${x.n}</b><small>${x.d}</small></button>`).join(""):`<p class="empty">Kein Modell mit dieser Kombination.</p>`;
   const m=model();
   $("variantBox").innerHTML=chipGroup("Variante / Armlehne",m.v,S.v,"v")+chipGroup("Füsse",m.legs,S.leg,"leg");
   $("mattBox").innerHTML=m.matt?`<p class="empty">${m.matt}</p>`:
