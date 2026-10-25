@@ -1,0 +1,70 @@
+{%- assign base = section.settings.asset_base -%}
+<style>
+.qf{background:#221B17;color:#EDE5DA;font-family:"Jost","Helvetica Neue",Arial,sans-serif;font-weight:300}
+.qf a{color:#EDE5DA;text-decoration:none}.qf a:hover{color:#fff;text-decoration:underline}
+.qf .in{max-width:1360px;margin:0 auto;padding:52px 40px 28px}
+.qf .top{display:grid;grid-template-columns:minmax(220px,1.1fr) repeat(2,minmax(160px,1fr)) minmax(260px,1.3fr);gap:36px 48px;align-items:start}
+.qf .brand{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.qf .brand img{height:120px;width:auto;display:block}
+.qf .claim{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#CFC4B6}
+.qf h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:22px;margin:0 0 12px;color:#F4EFE8}
+.qf p,.qf li{font-size:13px;line-height:1.7;color:#CFC4B6;margin:0}
+.qf ul{list-style:none;margin:0;padding:0}
+.qf form{display:flex;border:1px solid #6B5E52;margin-top:12px}
+.qf input[type=email]{flex:1;min-width:0;min-height:44px;padding:0 14px;border:0;background:transparent;color:#EDE5DA;font:inherit;font-size:13px}
+.qf button{width:48px;min-height:44px;border:0;background:#EDE5DA;color:#221B17;cursor:pointer;font-size:16px}
+.qf .ok{font-size:13px;color:#cfe3d3;margin-top:8px}
+.qf .bottom{margin-top:40px;padding-top:18px;border-top:1px solid #3a2f28;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;font-size:12px;color:#a89786}
+.qf .bottom a{color:#a89786}
+@media (max-width:900px){.qf .in{padding:40px 16px 24px}.qf .top{grid-template-columns:1fr 1fr}.qf .brand,.qf .news{grid-column:1/-1}.qf .brand img{height:96px}}
+</style>
+<footer class="qf">
+  <div class="in">
+    <div class="top">
+      <div class="brand">
+        <img src="{{ base }}img/brand/logo-hell.webp" alt="onlysofabeds – Stylish Sleep Sofas" width="768" height="572" loading="lazy">
+        <span class="claim">{{ section.settings.claim }}</span>
+      </div>
+      <div>
+        <h3>Showroom</h3>
+        <p>{{ section.settings.address | newline_to_br }}</p>
+        <p style="margin-top:8px"><a href="/pages/kontakt">Termin vereinbaren →</a></p>
+      </div>
+      <div>
+        <h3>Entdecken</h3>
+        <ul>
+          {%- for link in section.settings.menu.links -%}<li><a href="{{ link.url }}">{{ link.title }}</a></li>{%- endfor -%}
+        </ul>
+      </div>
+      <div class="news">
+        <h3>Inspiration & Neuheiten</h3>
+        <p>Neue Stoffe, Modelle und Projekte, etwa viermal im Jahr.</p>
+        {%- form 'customer', id: 'osb-news' -%}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          {%- if form.posted_successfully? -%}<p class="ok">Danke, Sie sind angemeldet.</p>{%- endif -%}
+          <label for="osb-news-mail" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">E-Mail-Adresse</label>
+          <input id="osb-news-mail" type="email" name="contact[email]" placeholder="Ihre E-Mail-Adresse" required autocomplete="email">
+          <button type="submit" aria-label="Anmelden">→</button>
+        {%- endform -%}
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© {{ 'now' | date: '%Y' }} {{ shop.name }}</span>
+      <span>
+        {%- for policy in shop.policies -%}<a href="{{ policy.url }}">{{ policy.title }}</a>{% unless forloop.last %} · {% endunless %}{%- endfor -%}
+      </span>
+    </div>
+  </div>
+</footer>
+{% schema %}
+{
+  "name": "OSB Fusszeile",
+  "class": "osb-footer-section",
+  "settings": [
+    {"type": "text", "id": "claim", "label": "Claim", "default": "Bessere Tage. Und Nächte."},
+    {"type": "textarea", "id": "address", "label": "Adresse", "default": "Schaffhauserstrasse 121\n8152 Opfikon (bei Zürich)\nBesuch nach Vereinbarung"},
+    {"type": "link_list", "id": "menu", "label": "Menü", "default": "main-menu"},
+    {"type": "text", "id": "asset_base", "label": "Adresse der Bilder", "default": "https://cdn.jsdelivr.net/gh/Kroko007/onlysofabeds-assets@main/"}
+  ]
+}
+{% endschema %}

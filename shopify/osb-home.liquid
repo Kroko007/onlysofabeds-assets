@@ -1,175 +1,180 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&display=swap">
 {%- assign base = section.settings.asset_base -%}
 {%- assign cfg = section.settings.configurator_url | default: '/pages/konfigurator' -%}
 <style>
-.osbh{--ivory:#f6f1e9;--paper:#fffdf9;--espresso:#2e211b;--cocoa:#6b5a50;--line:#e3d9cc;--bordeaux:#7a2635;--stage:#ebe2d5;
-  --display:"Bodoni Moda","Didot",Georgia,serif;--body:"Jost","Avenir Next","Helvetica Neue",Arial,sans-serif;
-  background:var(--ivory);color:var(--espresso);font-family:var(--body);font-weight:300;font-size:16px;line-height:1.6}
-.osbh *{box-sizing:border-box}
-.osbh .in{max-width:1240px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
-.osbh .eyebrow{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--bordeaux);font-weight:400}
-.osbh h1,.osbh h2,.osbh h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;color:inherit}
-.osbh p{margin:0}
-.osbh .btn{display:inline-block;font-family:var(--body);font-size:13px;font-weight:400;letter-spacing:.16em;text-transform:uppercase;padding:15px 26px;border-radius:2px;text-decoration:none;border:1px solid currentColor;transition:background .2s,color .2s}
-.osbh .btn.solid{background:var(--bordeaux);border-color:var(--bordeaux);color:#fff}
-.osbh .btn.solid:hover{background:#651d2b}
-.osbh .btn.ghost{color:var(--ivory)}
-.osbh .btn.ghost:hover{background:var(--ivory);color:var(--espresso)}
-.osbh .btn.dark{color:var(--espresso)}
-.osbh .btn.dark:hover{background:var(--espresso);color:var(--ivory)}
-/* hero */
-.osbh .hero{background:var(--espresso);color:var(--ivory);overflow:hidden}
-.osbh .hero .in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:40px;align-items:center;padding-block:72px 64px}
-.osbh .hero h1{font-size:clamp(40px,6vw,76px);line-height:1.02;letter-spacing:-.01em}
-.osbh .hero h1 em{color:#d9a6ae;font-style:italic}
-.osbh .hero .lead{margin-top:22px;max-width:46ch;color:#d8ccbf;font-size:17px}
-.osbh .hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
-.osbh .hero .claim{margin-top:28px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#a89786}
-.osbh .hero figure{margin:0;position:relative}
-.osbh .hero figure::before{content:"";position:absolute;inset:8% -6% 2% 6%;background:radial-gradient(closest-side,rgba(217,166,174,.18),transparent);}
-.osbh .hero figure img{position:relative;width:100%;height:auto;display:block;filter:drop-shadow(0 30px 40px rgba(0,0,0,.45))}
-.osbh .hero .cap{position:relative;margin-top:10px;font-size:12px;color:#a89786;text-align:right}
-@media (max-width:860px){.osbh .hero .in{grid-template-columns:1fr;padding-block:48px 40px}.osbh .hero figure{order:-1}}
-/* usp */
-.osbh .usp{padding-block:72px;border-bottom:1px solid var(--line)}
-.osbh .usp .head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:36px}
-.osbh .usp h2{font-size:clamp(30px,3.6vw,44px);line-height:1.1;max-width:20ch}
-.osbh .usp .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
-.osbh .usp .card{border-top:1px solid var(--espresso);padding-top:18px}
-.osbh .usp .card h3{font-size:23px;margin-bottom:8px}
-.osbh .usp .card p{color:var(--cocoa);font-size:15px}
-@media (max-width:760px){.osbh .usp .grid{grid-template-columns:1fr}}
-/* collection */
-.osbh .coll{padding-block:72px}
-.osbh .coll .head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:28px}
-.osbh .coll h2{font-size:clamp(30px,3.6vw,44px);line-height:1.1}
-.osbh .coll .row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-.osbh .coll a.item{display:flex;flex-direction:column;gap:6px;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:16px 16px 18px;text-decoration:none;color:var(--espresso);transition:border-color .2s,transform .2s}
-.osbh .coll a.item:hover{border-color:var(--bordeaux);transform:translateY(-2px)}
-.osbh .coll a.item img{width:100%;height:150px;object-fit:contain}
-.osbh .coll a.item b{font-family:var(--display);font-weight:500;font-size:21px}
-.osbh .coll a.item small{color:var(--cocoa);font-size:13px;line-height:1.4}
-@media (max-width:900px){.osbh .coll .row{grid-template-columns:repeat(2,minmax(0,1fr))}}
-/* steps */
-.osbh .steps{background:var(--stage);padding-block:72px}
-.osbh .steps h2{font-size:clamp(30px,3.6vw,44px);line-height:1.1;margin-bottom:32px}
-.osbh .steps ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;counter-reset:s}
-.osbh .steps li{counter-increment:s}
-.osbh .steps li::before{content:counter(s,decimal-leading-zero);display:block;font-family:var(--display);font-size:40px;color:var(--bordeaux);line-height:1;margin-bottom:12px}
-.osbh .steps li b{display:block;font-weight:500;font-size:17px;margin-bottom:4px}
-.osbh .steps li span{color:var(--cocoa);font-size:15px}
-@media (max-width:860px){.osbh .steps ol{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:480px){.osbh .steps ol{grid-template-columns:1fr}}
-/* fabrics */
-.osbh .fab{padding-block:72px;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:40px;align-items:center}
-.osbh .fab h2{font-size:clamp(30px,3.6vw,44px);line-height:1.1;margin:10px 0 14px}
-.osbh .fab p{color:var(--cocoa);max-width:48ch}
-.osbh .fab .sw{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px}
-.osbh .fab .sw span{aspect-ratio:1;border-radius:50%;background-size:cover;background-position:center;border:1px solid var(--line)}
-.osbh .fab .btn{margin-top:24px}
-@media (max-width:860px){.osbh .fab{grid-template-columns:1fr}.osbh .fab .sw{grid-template-columns:repeat(6,minmax(0,1fr))}}
-/* cta */
-.osbh .cta{background:var(--bordeaux);color:#fff}
-.osbh .cta .in{padding-block:64px;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
-.osbh .cta h2{font-size:clamp(28px,3.4vw,42px);line-height:1.12;max-width:22ch}
-.osbh .cta p{margin-top:10px;color:#f1d9dc}
-.osbh .cta .btn{color:#fff}
-.osbh .cta .btn:hover{background:#fff;color:var(--bordeaux)}
-.osbh :focus-visible{outline:2px solid var(--bordeaux);outline-offset:3px}
-@media (prefers-reduced-motion:reduce){.osbh *{transition:none!important}}
+.qx{background:#F4EFE8;color:#2A1F19;font-family:"Jost","Helvetica Neue",Arial,sans-serif;font-weight:300;font-size:15px;line-height:1.6}
+.qx *{box-sizing:border-box}.qx a{color:inherit;text-decoration:none}.qx p{margin:0}
+.qx h1,.qx h2,.qx h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;margin:0;text-wrap:balance;color:inherit;letter-spacing:0}
+.qx .w{max-width:1360px;margin:0 auto;padding-left:40px;padding-right:40px}
+.qx .eb{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#5E5146}
+.qx .btn{align-self:flex-start;display:inline-flex;align-items:center;gap:14px;min-height:50px;padding:0 26px;background:#221B17;color:#F4EFE8;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;transition:background .2s}
+.qx .btn:hover{background:#6F343B}
+.qx .btn.light{background:#F4EFE8;color:#221B17}.qx .btn.light:hover{background:#fff}
+.qx .lnk{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:10px 0;border-bottom:1px solid currentColor}
+.qx .hero{position:relative;background:#382B20;min-height:620px;overflow:hidden;display:flex;align-items:center}
+.qx .hero>img{position:absolute;top:0;right:0;width:68%;height:100%;object-fit:cover;object-position:40% center}
+.qx .hero .fade{position:absolute;inset:0;background:linear-gradient(90deg,#382B20 0%,#382B20 32%,rgba(56,43,32,.55) 46%,rgba(56,43,32,0) 62%)}
+.qx .hero .txt{position:relative;width:100%;padding-block:88px}
+.qx .hero .box{max-width:540px;display:flex;flex-direction:column;gap:22px;color:#F4EFE8}
+.qx .hero .eb{color:#E6D9C9}
+.qx .hero h1{font-size:clamp(44px,5.4vw,76px);line-height:1.02}
+.qx .hero p{font-size:17px;color:#E6D9C9;max-width:44ch}
+.qx .hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.qx .hero .btn.ghost{background:transparent;border:1px solid #F4EFE8}.qx .hero .btn.ghost:hover{background:#F4EFE8;color:#221B17}
+@media (max-width:860px){.qx .w{padding-left:16px;padding-right:16px}.qx .hero{min-height:0;flex-direction:column;align-items:stretch}
+ .qx .hero>img{position:relative;width:100%;height:300px}.qx .hero .fade{display:none}.qx .hero .txt{padding-block:36px 44px}}
+.qx .need{padding-block:56px 72px;display:flex;flex-direction:column;gap:28px}
+.qx .head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 24px}
+.qx .head h2{font-size:40px;line-height:1.1}
+.qx .cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.qx .card{display:flex;flex-direction:column;gap:14px}
+.qx .card img{width:100%;aspect-ratio:5/3;object-fit:cover;display:block;transition:opacity .2s}
+.qx .card:hover img{opacity:.9}
+.qx .card .t{display:flex;justify-content:space-between;gap:12px}
+.qx .card b{display:block;font-family:"Cormorant Garamond",Georgia,serif;font-size:24px;font-weight:500;line-height:1.2}
+.qx .card small{font-size:13px;color:#6B5E52}
+@media (max-width:1000px){.qx .cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.qx .cards{grid-template-columns:1fr}}
+.qx .coll{display:flex;flex-wrap:wrap;background:#F7F3EE}
+.qx .coll>img{flex:1 1 520px;min-width:0;width:46%;min-height:420px;object-fit:cover;display:block}
+.qx .coll .c{flex:1 1 520px;min-width:0;padding:56px 40px 56px 48px;display:flex;flex-wrap:wrap;gap:40px;align-items:center}
+.qx .coll .c>div{flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:20px}
+.qx .coll h2{font-size:clamp(36px,3.4vw,48px);line-height:1.05}
+.qx .coll p{font-size:14px;line-height:1.75;color:#4E4339;max-width:420px}
+.qx .coll .mini{flex:0 1 210px;min-width:180px;background:#E9E2D8;display:flex;flex-direction:column}
+.qx .coll .mini img{width:100%;aspect-ratio:8/7;object-fit:cover;display:block}
+.qx .coll .mini span{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;font-size:10px;letter-spacing:.18em;text-transform:uppercase}
+@media (max-width:860px){.qx .coll .c{padding:40px 16px}.qx .coll>img{min-height:260px}}
+.qx .cfg{background:#221B17;color:#F4EFE8}
+.qx .cfg .w{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px;align-items:center;padding-block:64px}
+.qx .cfg h2{font-size:clamp(34px,3.4vw,46px);line-height:1.08}
+.qx .cfg p{color:#CFC4B6;margin-top:14px;max-width:44ch}
+.qx .cfg ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;counter-reset:s}
+.qx .cfg li{border-top:1px solid #6B5E52;padding-top:14px;counter-increment:s;font-size:14px}
+.qx .cfg li::before{content:"0" counter(s);display:block;font-family:"Cormorant Garamond",Georgia,serif;font-size:28px;color:#D9B8AE;margin-bottom:4px}
+.qx .cfg li small{display:block;color:#a89786;font-size:12px;line-height:1.45;margin-top:2px}
+.qx .cfg .btn{margin-top:26px}
+@media (max-width:960px){.qx .cfg .w{grid-template-columns:1fr}.qx .cfg ol{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.qx .guide{display:flex;flex-wrap:wrap;background:#EDE6DC}
+.qx .guide .l{flex:1 1 520px;min-width:0;display:flex;flex-wrap:wrap;background:#E6DED3}
+.qx .guide .l img{flex:1 1 220px;min-width:0;min-height:280px;width:45%;object-fit:cover;display:block}
+.qx .guide .l>div{flex:1 1 260px;min-width:0;padding:44px 36px;display:flex;flex-direction:column;gap:18px;justify-content:center}
+.qx .guide h2{font-size:32px;line-height:1.15}
+.qx .guide p{font-size:14px;line-height:1.7;color:#4E4339}
+.qx .ben{flex:1 1 520px;min-width:0;padding:48px 56px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px 32px;align-content:center}
+.qx .ben div{display:flex;flex-direction:column;gap:8px}
+.qx .ben b{font-size:14px;font-weight:500}
+.qx .ben small{font-size:12px;line-height:1.5;color:#5E5146}
+@media (max-width:860px){.qx .ben{padding:40px 16px;grid-template-columns:repeat(2,minmax(0,1fr))}.qx .guide .l>div{padding:36px 16px}}
+.qx .show{padding-block:72px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
+.qx .show h2{font-size:clamp(34px,3.4vw,46px);line-height:1.08}
+.qx .show p{color:#4E4339;margin-top:14px;max-width:46ch}
+.qx .show address{font-style:normal;font-size:14px;line-height:1.7;border-left:1px solid #2A1F19;padding-left:20px}
+@media (max-width:760px){.qx .show{grid-template-columns:1fr;padding-block:48px}}
 </style>
-
-<div class="osbh">
+<div class="qx">
   <section class="hero">
-    <div class="in">
-      <div>
-        <p class="eyebrow" style="color:#d9a6ae">Schlafsofas für Hotellerie &amp; Care</p>
-        <h1 style="margin-top:14px">Tagsüber Sofa.<br><em>Nachts ein echtes Bett.</em></h1>
-        <p class="lead">Kuratierte Schlafsofas und Schlafsessel aus spanischer Manufaktur, konfiguriert für Ihr Projekt. In über 400 Stoffen, mit Matratzen bis 18 cm und auf Wunsch schwer entflammbar.</p>
+    <img src="{{ base }}img/brand/hero.webp" alt="Helles Bouclé-Schlafsofa in einem warmen Wohnraum mit Marmortisch" width="1568" height="744" fetchpriority="high">
+    <div class="fade" aria-hidden="true"></div>
+    <div class="txt w">
+      <div class="box">
+        <span class="eb">Tagsüber Sofa. Nachts ein echtes Bett.</span>
+        <h1>Mehr als ein Sofa.<br>Ein Raum, der mehr kann.</h1>
+        <p>Design-Schlafsofas für Hotels, Serviced Apartments und Pflege. In Ihrem Stoff, in Ihrer Stückzahl.</p>
         <div class="ctas">
-          <a class="btn solid" href="{{ cfg }}">Konfigurator starten</a>
-          <a class="btn ghost" href="{{ cfg }}#anfrage">Projekt anfragen</a>
+          <a class="btn light" href="{{ cfg }}">Jetzt konfigurieren <span aria-hidden="true">→</span></a>
+          <a class="btn ghost" href="#kollektion">Kollektion entdecken</a>
         </div>
-        <p class="claim">Sleep · Design · Hospitality</p>
       </div>
-      <figure>
-        <img src="{{ base }}img/dali.webp" alt="Schlafsofa Dalí mit Holzfüssen" width="900" height="560" fetchpriority="high">
-        <figcaption class="cap">Dalí · Bettfunktion unsichtbar, Liegefläche bis 160 × 195 cm</figcaption>
-      </figure>
     </div>
   </section>
 
-  <section class="usp in">
+  <section class="need w" aria-labelledby="need-h">
     <div class="head">
-      <h2>Ein Spezialist. Eine Kategorie.</h2>
-      <p class="eyebrow">Nur Schlafsofas</p>
+      <h2 id="need-h">Für jeden Raum das richtige Modell</h2>
+      <a class="lnk" href="{{ cfg }}">Alle Modelle <span aria-hidden="true">→</span></a>
     </div>
-    <div class="grid">
-      <div class="card"><h3>Hotels &amp; Apartments</h3><p>Zusatzbetten, die wie Designsofas aussehen. Mehr Belegung pro Zimmer, ohne Kompromiss beim Interior.</p></div>
-      <div class="card"><h3>Pflege &amp; Kliniken</h3><p>Schlafplätze für Angehörige und Nachtwachen. Pflegeleichte Stoffe, robuste Mechanik, Objektqualität.</p></div>
-      <div class="card"><h3>Architekten &amp; Planer</h3><p>Masse, 3D-Daten und Stoffmuster für Ihre Planung. Persönliche Projektberatung und Bemusterung.</p></div>
-    </div>
-  </section>
-
-  <section class="coll in">
-    <div class="head">
-      <div><p class="eyebrow">Die Kollektion</p><h2 style="margin-top:10px">14 Schlafsofas, 7 Schlafsessel</h2></div>
-      <a class="btn dark" href="{{ cfg }}">Alle Modelle konfigurieren</a>
-    </div>
-    <div class="row">
-      <a class="item" href="{{ cfg }}"><img src="{{ base }}img/indy.webp" alt="" loading="lazy"><b>Indy</b><small>Motorisch, per Knopfdruck vom Sofa zum Bett</small></a>
-      <a class="item" href="{{ cfg }}"><img src="{{ base }}img/opera.webp" alt="" loading="lazy"><b>Opera</b><small>Hoher Fuss, Liegefläche bis 160 × 195 cm</small></a>
-      <a class="item" href="{{ cfg }}"><img src="{{ base }}img/zeus.webp" alt="" loading="lazy"><b>Zeus</b><small>Sockel in Messing oder Holz, ideal fürs Objekt</small></a>
-      <a class="item" href="{{ cfg }}"><img src="{{ base }}img/helsinki.webp" alt="" loading="lazy"><b>Helsinki</b><small>Leicht und elegant, schräge Holzfüsse</small></a>
+    <div class="cards">
+      <a class="card" href="{{ cfg }}"><img src="{{ base }}img/brand/kachel-klein.webp" alt="Kompaktes helles Schlafsofa im Stadt-Apartment" width="494" height="300" loading="lazy"><span class="t"><span><b>Serviced Apartments</b><small>Kompakt, wohnlich, schnell zum Bett.</small></span><span aria-hidden="true">→</span></span></a>
+      <a class="card" href="{{ cfg }}"><img src="{{ base }}img/brand/kachel-gruen.webp" alt="Grünes Schlafsofa in einem hellen Zimmer" width="494" height="300" loading="lazy"><span class="t"><span><b>Hotelzimmer</b><small>Zusatzbett ohne Kompromisse beim Design.</small></span><span aria-hidden="true">→</span></span></a>
+      <a class="card" href="{{ cfg }}"><img src="{{ base }}img/brand/kachel-bett.webp" alt="Ausgeklapptes Schlafsofa mit bezogenem Bett" width="494" height="300" loading="lazy"><span class="t"><span><b>Familien- &amp; Pflegezimmer</b><small>Echte Matratze, 195 cm Liegelänge.</small></span><span aria-hidden="true">→</span></span></a>
+      <a class="card" href="{{ cfg }}"><img src="{{ base }}img/brand/kachel-bordeaux.webp" alt="Bordeaux-Schlafsofa in Samt in einem dunklen Interieur" width="492" height="300" loading="lazy"><span class="t"><span><b>Lounge &amp; Suiten</b><small>Zeitlose Stücke mit Wirkung.</small></span><span aria-hidden="true">→</span></span></a>
     </div>
   </section>
 
-  <section class="steps">
-    <div class="in">
-      <p class="eyebrow">So läuft Ihr Projekt</p>
-      <h2 style="margin-top:10px">Vom ersten Entwurf bis ins Zimmer</h2>
+  <section class="coll" id="kollektion" aria-labelledby="coll-h">
+    <img src="{{ base }}img/brand/kollektion.webp" alt="Grosses helles Schlafsofa in einem sonnigen Raum mit Rundbogenfenster" width="1118" height="486" loading="lazy">
+    <div class="c">
+      <div>
+        <span class="eb">Die Kollektion</span>
+        <h2 id="coll-h">Form trifft Funktion.</h2>
+        <p>Unsere Schlafsofas verbinden echten Schlafkomfort, ruhiges Design und durchdachte Mechanik. Vom kompakten Sessel bis zum grosszügigen Viersitzer, mit verdeckten, tiefen oder hohen Füssen.</p>
+        <a class="btn" href="{{ cfg }}">Alle Schlafsofas ansehen <span aria-hidden="true">→</span></a>
+      </div>
+      <a class="mini" href="{{ cfg }}">
+        <img src="{{ base }}img/brand/mechanik.webp" alt="Mechanik eines Schlafsofas beim Ausklappen" width="316" height="276" loading="lazy">
+        <span>So funktioniert’s <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="cfg" aria-labelledby="cfg-h">
+    <div class="w">
+      <div>
+        <span class="eb" style="color:#CFC4B6">Konfigurator</span>
+        <h2 id="cfg-h">In fünf Schritten zu Ihrem Projekt.</h2>
+        <p>Modell, Ausführung, Matratze, Stoff und Stückzahl wählen. Sie sehen Ihr Sofa im gewählten Stoff, in 3D und auf Wunsch in Ihrem eigenen Raum.</p>
+        <a class="btn light" href="{{ cfg }}">Konfigurator öffnen <span aria-hidden="true">→</span></a>
+      </div>
       <ol>
-        <li><b>Konfigurieren</b><span>Modell, Grösse, Matratze und Stoff online wählen, in 3D ansehen.</span></li>
-        <li><b>Anfragen</b><span>Alle Positionen als Projekt senden. Unverbindlich und kostenlos.</span></li>
-        <li><b>Bemustern</b><span>Musterbox mit Ihren Stoffen oder Termin im Showroom in Opfikon bei Zürich.</span></li>
-        <li><b>Liefern</b><span>Gefertigt in Spanien, geliefert für Ihren Termin.</span></li>
+        <li>Modell<small>Sofa oder Sessel</small></li>
+        <li>Ausführung<small>Armlehnen und Füsse</small></li>
+        <li>Matratze<small>Breite, Dicke, Qualität</small></li>
+        <li>Stoff<small>Hunderte Farben</small></li>
+        <li>Anfrage<small>unverbindlich, kostenlos</small></li>
       </ol>
     </div>
   </section>
 
-  <section class="in fab">
-    <div>
-      <p class="eyebrow">Stoffbibliothek</p>
-      <h2>Über 400 Stoffe. Uni, Velours, Bouclé, Kunstdruck.</h2>
-      <p>Pflegeleichte Aquaclean- und Easyclean-Qualitäten für den täglichen Einsatz, schwer entflammbare Ausführungen für Objektanforderungen und ausdrucksstarke Designstoffe für besondere Räume.</p>
-      <p style="font-size:13px;margin-top:10px">Farben am Bildschirm können vom Original abweichen. Gerne senden wir Ihnen kostenlose Stoffmuster. Für 100 % Sicherheit: Termin im Showroom Opfikon vereinbaren.</p>
-      <a class="btn dark" href="{{ cfg }}">Stoffe ansehen</a>
+  <section class="guide" aria-labelledby="guide-h">
+    <div class="l">
+      <img src="{{ base }}img/brand/stoff.webp" alt="Nahaufnahme: Kissen in Bordeaux-Samt auf strukturiertem Stoff" width="600" height="414" loading="lazy">
+      <div>
+        <h2 id="guide-h">Ein schönes Sofa.<br>Eine erholsame Nacht.</h2>
+        <p>Stoffe, Farben und Matratzen sieht und fühlt man am besten im Original. Wir schicken Ihnen Stoffmuster oder zeigen Ihnen alles im Showroom.</p>
+        <a class="lnk" href="#showroom">Showroom-Termin <span aria-hidden="true">→</span></a>
+      </div>
     </div>
-    <div class="sw" aria-hidden="true">
-      {%- assign sws = 'titan-15,titan-53,titan-271,titan-92,axis-21,axis-31,axis-09,axis-37,nassau-03,nassau-54,velsatis-59-new,velsatis-14-new,ritmo-64-burdeos,ritmo-32-verde,armonia-08-vison,picar-45,glow-002,glow-528,enigma-24,enigma-13,dresde-12,syke-90,linen-natural,gaudi-05-verde' | split: ',' -%}
-      {%- for s in sws -%}<span style="background-image:url({{ base }}sw/{{ s }}.webp)"></span>{%- endfor -%}
+    <div class="ben">
+      <div><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2A1F19" stroke-width="1.2"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M3 12h18M6 17v2M18 17v2"/></svg><b>Echter Schlafkomfort</b><small>Richtige Matratzen statt Notlösung.</small></div>
+      <div><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2A1F19" stroke-width="1.2"><path d="M12 3c3 4 5 6.5 5 10a5 5 0 0 1-10 0c0-2 1-3.5 2-5 0 2 1 3 2 3 0-3 0-5 1-8z"/></svg><b>Brandschutz</b><small>Schwer entflammbare Stoffe und Matratzen auf Anfrage.</small></div>
+      <div><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2A1F19" stroke-width="1.2"><circle cx="8" cy="8" r="4"/><circle cx="16" cy="8" r="4"/><circle cx="12" cy="15" r="4"/></svg><b>Grosse Stoffauswahl</b><small>Uni, Muster, Velours, Bouclé und Cord.</small></div>
+      <div><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2A1F19" stroke-width="1.2"><path d="M2 6h12v10H2zM14 9h4l4 4v3h-8z"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg><b>Projektlieferung</b><small>Geplant auf Ihren Termin.</small></div>
+      <div><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2A1F19" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><b>Persönliche Beratung</b><small>Ein Ansprechpartner für Ihr Projekt.</small></div>
+      <div><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2A1F19" stroke-width="1.2"><path d="M3 12l6-7h6l6 7-9 9z"/><path d="M3 12h18M9 5l3 16M15 5l-3 16"/></svg><b>Europäische Fertigung</b><small>Hergestellt in Spanien.</small></div>
     </div>
   </section>
 
-  <section class="cta" id="kontakt">
-    <div class="in">
-      <div>
-        <h2>Sie planen Zimmer, Apartments oder eine Station?</h2>
-        <p>Wir beraten Sie persönlich, stellen Ihnen eine Musterbox zusammen oder empfangen Sie im Showroom an der Schaffhauserstrasse 121 in 8152 Opfikon.</p>
-      </div>
-      <a class="btn" href="{{ cfg }}">Projekt starten</a>
+  <section class="show w" id="showroom" aria-labelledby="show-h">
+    <div>
+      <span class="eb">Showroom</span>
+      <h2 id="show-h">Für 100 % Sicherheit: im Original ansehen.</h2>
+      <p>Farben wirken auf jedem Bildschirm anders. Im Showroom sehen und fühlen Sie Stoffe, Matratzen und Modelle. Wir nehmen uns Zeit für Ihr Projekt.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:26px"><a class="btn" href="{{ cfg }}#anfrage">Termin anfragen <span aria-hidden="true">→</span></a></div>
     </div>
+    <address>
+      <b style="font-weight:500">onlysofabeds Showroom</b><br>
+      {{ section.settings.address | newline_to_br }}
+    </address>
   </section>
 </div>
-
 {% schema %}
 {
   "name": "OSB Startseite",
-  "tag": "section",
+  "class": "osb-home-section",
   "settings": [
     {"type": "text", "id": "asset_base", "label": "Adresse der Bilder", "default": "https://cdn.jsdelivr.net/gh/Kroko007/onlysofabeds-assets@main/"},
-    {"type": "text", "id": "configurator_url", "label": "Link zum Konfigurator", "default": "/pages/konfigurator"}
+    {"type": "url", "id": "configurator_url", "label": "Link zum Konfigurator"},
+    {"type": "textarea", "id": "address", "label": "Adresse Showroom", "default": "Schaffhauserstrasse 121\n8152 Opfikon (bei Zürich)\nBesuch nach Vereinbarung"}
   ],
   "presets": [{"name": "OSB Startseite"}]
 }
